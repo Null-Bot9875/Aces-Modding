@@ -13,3 +13,4 @@ logs/
 # Packaged MOD output
 dist/
 *.zip
+!game-lua/*.zip

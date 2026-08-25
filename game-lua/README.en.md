@@ -1,7 +1,13 @@
-# Game Lua source reference
+# Game Lua files
 
-This area will provide game Lua source useful to MOD authors, making it easier to see how existing Cards, Enemies, and Nodes are organized.
+Each game version is released with one matching archive in this directory:
 
-**Current status: Not yet provided.**
+```text
+aces-game-lua-<game-version>.zip
+```
 
-Internal functions found in the source are not necessarily safe for MODs. Depend only on interfaces explicitly listed in the [Lua API documentation](../docs/en/lua-api.md).
+The source tree is not expanded in this directory; only this archive is stored here.
+
+The game package contains the same readable Lua source stored as `.lua.bytes` files inside its asset packages. This archive restores the normal `.lua` extension and keeps the original directory layout, saving you from unpacking, extracting, and renaming the files yourself. It is not the result of decompilation or decryption.
+
+Use these files to study existing game code. When creating a MOD, depend only on interfaces explicitly listed in the [Lua API documentation](../docs/en/lua-api.md).

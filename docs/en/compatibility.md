@@ -1,5 +1,9 @@
-# Compatibility
+# Game updates and MOD compatibility
 
-Only documented Lua APIs and content-format contracts are intended to carry compatibility commitments. Internal implementation and accidentally reachable objects may change between versions.
+When creating a MOD, depend only on configuration fields and Lua APIs explicitly listed in the documentation. Internal game names may be reachable but can change after a game update.
 
-TODO: define supported game versions, the MOD version field, deprecation periods, changelog rules, and incompatible-version errors.
+## Current status
+
+The first supported game version and MOD version format are in preparation. Until compatibility details are published, treat the templates and examples as previews rather than a base for a long-lived MOD.
+
+Future changes that affect MODs will be listed in the [changelog](../../CHANGELOG.en.md), together with the changes authors need to make.

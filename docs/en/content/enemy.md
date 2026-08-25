@@ -1,5 +1,16 @@
 # Enemy configuration tutorial
 
-Goal: start with the smallest enemy and fully explain stats, action chains, card or skill references, presentation, localization, and battle verification.
+This tutorial will begin with the smallest possible enemy and progressively add:
 
-TODO: verify how Enemy configuration reaches both Client and LocalServer; freeze action-chain dependencies; provide an `enemy-pack` reproducible in a real battle.
+- Name, description, and appearance;
+- basic stats such as health;
+- actions taken each turn;
+- cards or skills used by the enemy;
+- Chinese and English text;
+- a way to place the enemy in a battle and fight it.
+
+## Current status
+
+The tutorial and `enemy-pack` template are in preparation. There is not yet an enemy example that can be entered in battle.
+
+If you want to create a special action pattern, choose “Capability request” in GitHub Issues and describe the behavior from the player’s point of view.

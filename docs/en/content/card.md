@@ -1,5 +1,15 @@
 # Card configuration tutorial
 
-Goal: start with the smallest card and progressively cover presentation, cost, effects, targets, upgrades, localization, asset references, and in-game verification.
+This tutorial will begin with the smallest possible card and progressively add:
 
-TODO: freeze public fields and accepted values; add minimal examples, failing examples, and verification methods; connect the finished tutorial to the `card-pack` template.
+- Name, description, and artwork;
+- cost, target, and effects;
+- changes after upgrading;
+- Chinese and English text;
+- a way to obtain and play the card in the game.
+
+## Current status
+
+The tutorial and `card-pack` template are in preparation. There is not yet a card configuration you can copy directly.
+
+If your card needs an effect not covered by the documentation, choose “Capability request” in GitHub Issues and describe what should happen when the player uses it.

@@ -1,5 +1,13 @@
 # Author tools
 
-This directory is intended for local command-line tools that do not require a website.
+This area will provide MOD author tools that run locally without requiring a separate website.
 
-TODO: implement directory and manifest validation, configuration-reference checks, content-pack packaging, version compatibility checks, and diagnostic collection. Errors must be understandable and actionable for authors.
+Planned tools will:
+
+- Check the MOD directory and required files;
+- check references between Cards, Enemies, and Nodes;
+- package a shareable MOD;
+- check game-version compatibility;
+- collect diagnostics needed when reporting a problem.
+
+**Current status: Not yet provided.** There are no commands to run yet.

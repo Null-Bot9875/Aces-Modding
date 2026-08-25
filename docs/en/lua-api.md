@@ -1,8 +1,8 @@
-# Lua API
+# Lua APIs you can use
 
-The formal Lua API consists of interfaces explicitly provided to MOD authors with a compatibility commitment. Internal objects that happen to be reachable from Lua do not automatically become public API.
+Lua APIs handle loading, logging, and lifecycle behavior beyond configuration content.
 
-The planned version-one surface records:
+The first documentation set will cover:
 
 - `Mod.CreateController()`;
 - `self.Info`;
@@ -10,4 +10,8 @@ The planned version-one surface records:
 - `OnLoad`, `OnGameReady`, `OnUpdate`, and `OnUnload`;
 - `require` scoped to the current MOD.
 
-TODO: verify signatures, timing, error isolation, examples, and compatibility promises. Internal entries such as `CS.*`, `ModHost`, `ModRuntime`, `Config.InstallMods`, and `core:` are not stable contracts.
+## Current status
+
+The API tutorial and copyable examples are in preparation. Do not infer parameters or call order from function names.
+
+Use only interfaces explicitly documented on this page. An internal game object may be reachable from Lua but can change or disappear after an update and should not become a MOD dependency.

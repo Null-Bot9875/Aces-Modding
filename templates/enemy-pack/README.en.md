@@ -1,5 +1,7 @@
 # enemy-pack template
 
-This directory will provide the smallest copyable enemy and action-chain content pack.
+Start here when you only want to add an enemy and its action pattern.
 
-TODO: add the template after Client, LocalServer, and real-battle verification. This directory is not currently a runnable MOD.
+This template will contain the smallest MOD information, one example enemy, its actions, Chinese and English text, and a way to enter battle against it.
+
+**Current status: In preparation.** There are no runnable files here yet, so do not copy this directory. To see how Card, Enemy, and Node content fit together, open the [complete example](../../examples/complete-mod/README.en.md).

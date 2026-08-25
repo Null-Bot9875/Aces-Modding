@@ -1,14 +1,16 @@
-# Project status
+# What is currently available
 
-This page separates version-one goals from capabilities that already have public evidence, so directory presence is not mistaken for completed support.
+These resources are still preparing their first author-test version. The directories exist, but items marked “In preparation” cannot yet be used directly.
 
-| Area | Version-one goal | Current publication readiness |
+| Area | Status | What this means for you |
 | --- | --- | --- |
-| Card | Complete tutorial and `card-pack` | Internal runtime evidence exists; public contract, template, and tutorial remain TODO |
-| Enemy | Complete tutorial and `enemy-pack` | Required; dual-side loading and real-battle acceptance remain TODO |
-| Node | Complete tutorial and `node-pack` | Required; type scope, map entry, dual-side loading, and playable acceptance remain TODO |
-| Lua API | Minimal lifecycle and logging surface | Candidate interfaces are listed; signatures, timing, and compatibility promises remain TODO |
-| Tools | Validation, packaging, and diagnostics | TODO |
-| `game-lua/` | Author reference source | License and public scope remain TODO |
+| Getting started | In preparation | Installation and loading steps are not yet available |
+| `card-pack` | In preparation | The empty directory cannot yet create cards |
+| `enemy-pack` | In preparation | There is not yet an enemy example you can enter in battle |
+| `node-pack` | In preparation | There is not yet a playable Node example |
+| `complete-mod` | In preparation | The complete finished example has not yet been added |
+| Lua API tutorial | In preparation | Do not infer usage from function names |
+| Local tools | Not provided | There are currently no validation or packaging commands |
+| Game Lua source reference | Not provided | For now, only use APIs already written in the documentation |
 
-Completion means more than configuration being readable: an author must be able to follow the documentation and obtain the documented result through the real game flow.
+When the author-test version opens, this page will mark items “Available” and link directly to the matching tutorial and runnable example.

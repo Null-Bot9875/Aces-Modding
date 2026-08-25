@@ -1,5 +1,17 @@
 # Node configuration tutorial
 
-Goal: assemble Cards, Enemies, action chains, rewards, and map placement into a Node that a player can enter and complete.
+This tutorial will combine the previous pieces into a new Node that players can enter and complete from the map.
 
-TODO: confirm the version-one Node-type scope; freeze map-placement and reference rules; verify consistent Client and LocalServer loading; provide a complete playable `node-pack`.
+You will learn how to:
+
+- Choose the enemies that appear in the Node;
+- set entry and completion conditions;
+- set rewards after battle;
+- place the Node where players can reach it;
+- test the full path from entering the Node to claiming rewards.
+
+## Current status
+
+The tutorial and `node-pack` template are in preparation. There is not yet a Node configuration you can play directly.
+
+To understand how Card, Enemy, and Node content fit together, see the [complete example](../../../examples/complete-mod/README.en.md). To begin from an empty structure, use the [node-pack template](../../../templates/node-pack/README.en.md).

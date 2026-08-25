@@ -1,5 +1,7 @@
 # Game Lua source reference
 
-This directory is intended for Lua source already distributed with the game and useful to MOD authors. Source visibility does not make every function a formal MOD API; compatibility is defined by `docs/en/lua-api.md` and the content-format documentation.
+This area will provide game Lua source useful to MOD authors, making it easier to see how existing Cards, Enemies, and Nodes are organized.
 
-TODO: confirm the public license, allowed directories, version markers, and synchronization process. No game source is committed before that decision.
+**Current status: Not yet provided.**
+
+Internal functions found in the source are not necessarily safe for MODs. Depend only on interfaces explicitly listed in the [Lua API documentation](../docs/en/lua-api.md).

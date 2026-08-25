@@ -2,43 +2,58 @@
 
 [English](README.en.md)
 
-这是 Aces 的 MOD 作者资料仓库。当前提交先建立公开项目的大结构，供本地 MOD Alpha 阶段整理作者体验和收集反馈；它还不是一套已经完成的正式 SDK。
+想为 Aces 制作自己的卡牌、敌人和 Node？从这里开始。
 
-## 第一版范围
+这套资料面向以配置为主的内容 MOD。你不需要修改游戏本体，也不需要先学习完整的游戏源码。
 
-第一版面向以配置为主的内容包 MOD，重点覆盖：
+> 当前是作者资料预览版。标记为“准备中”的教程、模板和示例还不能直接用于制作 MOD。
 
-- `card-pack`：卡牌内容；
-- `enemy-pack`：敌人及其行动链内容；
-- `node-pack`：把敌人、奖励等内容组织进可游玩的 Node。
+## 你可以制作什么
 
-中文文档是维护源和默认入口，英文文档与中文目录保持对应。代码标识、文件名和配置字段不翻译。
+- 新卡牌及其效果；
+- 新敌人和行动方式；
+- 包含敌人、奖励等内容的新 Node；
+- 把这些内容组合成一段可以游玩的完整内容。
 
-## 仓库结构
+## 从哪里开始
 
-- `docs/`：入门、内容配置、Lua API、调试、兼容性和限制；
-- `templates/`：三类内容包模板；
-- `examples/`：跨 Card、Enemy、Node 的完整示例；
-- `game-lua/`：随游戏发布的 Lua 源码参考区；
-- `tools/`：校验、打包和诊断工具；
-- `.github/`：反馈、缺陷和能力请求模板。
+| 你的目标 | 从这里进入 |
+| --- | --- |
+| 第一次制作 MOD | [从这里开始](docs/zh-cn/getting-started.md) |
+| 先看一个完整 MOD，再照着修改 | [完整示例](examples/complete-mod/README.md) |
+| 只制作卡牌 | [card-pack 模板](templates/card-pack/README.md) |
+| 只制作敌人 | [enemy-pack 模板](templates/enemy-pack/README.md) |
+| 从零制作一个 Node | [node-pack 模板](templates/node-pack/README.md) |
+| MOD 没有加载或效果不对 | [调试指南](docs/zh-cn/debugging.md) |
 
-## 当前状态
+`examples/complete-mod` 是用来阅读和修改的完整成品示例；`templates/node-pack` 是从零开始时复制的空白模板。两者用途不同。
 
-本仓库目前只有结构和边界说明。模板、示例与字段级教程在完成运行链路验证前均视为 TODO，不能据此判断某项能力已经正式支持。详见 [项目状态](docs/zh-cn/status.md)。
+## 文档
 
-## 第一版暂不包含
+- [文档目录](docs/zh-cn/README.md)
+- [MOD 包由什么组成](docs/zh-cn/mod-package.md)
+- [Card 配置教学](docs/zh-cn/content/card.md)
+- [Enemy 配置教学](docs/zh-cn/content/enemy.md)
+- [Node 配置教学](docs/zh-cn/content/node.md)
+- [可以使用的 Lua API](docs/zh-cn/lua-api.md)
+- [当前可以使用什么](docs/zh-cn/status.md)
+- [当前限制](docs/zh-cn/limitations.md)
 
-- Steam Workshop 发布链路；
-- YooAsset MOD Package 与作者侧 Package Builder；
+中文是默认文档语言，英文页面与中文页面保持对应。代码标识、文件名和配置字段不会翻译。
+
+## 当前还不能使用
+
+- Steam Workshop 发布；
+- YooAsset MOD Package；
 - 热重载或运行中卸载；
-- 配置内容包之外的额外玩法 Hook。
+- 文档没有列出的额外玩法 Hook。
 
-## 发布前关键 TODO
+如果你的 MOD 必须依赖这些能力，请在 GitHub Issues 中选择“能力请求”，说明你想制作的内容。
 
-- 固化 Card、Enemy、Node 的作者侧配置契约；
-- 验证 Enemy 与 Node 在 Client、LocalServer 和实际游玩中的一致加载；
-- 提供一个可完成游玩的 `node-pack` 示例；
-- 完成详细中文教程，再同步英文翻译；
-- 确认仓库许可证和 `game-lua/` 的源码分发边界；
-- 补齐校验、打包和版本兼容工具。
+## 遇到问题
+
+打开本仓库的 GitHub Issues 页面，根据情况选择：
+
+- “MOD 作者体验反馈”：不知道下一步该做什么，或者文档难以理解；
+- “缺陷报告”：按文档操作后得到错误结果；
+- “能力请求”：现有 Card、Enemy、Node 内容无法实现你的想法。

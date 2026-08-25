@@ -1,11 +1,11 @@
-# 第一版限制
+# 当前限制
 
-第一版不提供：
+当前不能使用：
 
 - Steam Workshop 发布链路；
-- YooAsset MOD Package 或作者侧 Package Builder；
+- YooAsset MOD Package；
 - 热重载或运行中卸载；
 - 配置内容包之外的额外玩法 Hook；
-- 对未文档化内部接口的兼容性保证。
+- 文档没有列出的游戏内部接口。
 
-这些限制用于收紧 Alpha 范围，不代表永久拒绝。新增能力应由真实 MOD 目标和作者反馈驱动。
+如果你的 MOD 必须使用其中一项，请在 GitHub Issues 中选择“能力请求”，说明你想制作的内容，以及缺少这项能力会卡在哪里。

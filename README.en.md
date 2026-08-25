@@ -2,24 +2,24 @@
 
 [中文](README.md)
 
-Want to create your own cards, enemies, and Nodes for Aces? Start here.
+Create custom cards, enemies, and Nodes for Aces from this repository.
 
-These resources focus on configuration-first content MODs. You do not need to modify the game itself or study the entire game codebase first.
+These resources focus on configuration-first content MODs. Modifying the game itself or studying the entire game codebase is not required.
 
 > This is currently a preview of the author resources. Tutorials, templates, and examples marked “In preparation” cannot yet be used directly to create a MOD.
 
-## What you can create
+## Content goals
 
 - New cards and effects;
 - new enemies and action patterns;
 - new Nodes containing enemies, rewards, and related content;
 - complete playable content assembled from these pieces.
 
-## Choose your starting point
+## Choose a starting point
 
-| Your goal | Start here |
+| Goal | Start here |
 | --- | --- |
-| Create your first MOD | [Getting started](docs/en/getting-started.md) |
+| Create a first MOD | [Getting started](docs/en/getting-started.md) |
 | Read and modify a complete MOD | [Complete example](examples/complete-mod/README.en.md) |
 | Create cards only | [card-pack template](templates/card-pack/README.en.md) |
 | Create enemies only | [enemy-pack template](templates/enemy-pack/README.en.md) |
@@ -35,7 +35,7 @@ These resources focus on configuration-first content MODs. You do not need to mo
 - [Card configuration tutorial](docs/en/content/card.md)
 - [Enemy configuration tutorial](docs/en/content/enemy.md)
 - [Node configuration tutorial](docs/en/content/node.md)
-- [Lua APIs you can use](docs/en/lua-api.md)
+- [Available Lua APIs](docs/en/lua-api.md)
 - [What is currently available](docs/en/status.md)
 - [Current limitations](docs/en/limitations.md)
 
@@ -48,12 +48,12 @@ Chinese is the default documentation language. English pages mirror the Chinese 
 - hot reload or runtime unloading;
 - additional gameplay hooks not listed in the documentation.
 
-If your MOD depends on one of these capabilities, open a “Capability request” in GitHub Issues and describe what you want to create.
+For MODs that depend on one of these capabilities, open a “Capability request” in GitHub Issues and describe the intended content.
 
-## When you need help
+## Getting help
 
 Open this repository’s GitHub Issues page and choose:
 
 - “MOD author feedback” when the next step or documentation is unclear;
 - “Bug report” when following the documentation produces the wrong result;
-- “Capability request” when Card, Enemy, and Node content cannot express your idea.
+- “Capability request” when Card, Enemy, and Node content cannot express the intended design.

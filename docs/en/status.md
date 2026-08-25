@@ -2,11 +2,11 @@
 
 These resources are still preparing their first author-test version. The directories exist, but items marked “In preparation” cannot yet be used directly.
 
-| Area | Status | What this means for you |
+| Area | Status | Author impact |
 | --- | --- | --- |
 | Getting started | In preparation | Installation and loading steps are not yet available |
 | `card-pack` | In preparation | The empty directory cannot yet create cards |
-| `enemy-pack` | In preparation | There is not yet an enemy example you can enter in battle |
+| `enemy-pack` | In preparation | No enemy example is available for entering battle yet |
 | `node-pack` | In preparation | There is not yet a playable Node example |
 | `complete-mod` | In preparation | The complete finished example has not yet been added |
 | Lua API tutorial | In preparation | Do not infer usage from function names |

@@ -7,13 +7,13 @@ body:
   - type: textarea
     id: goal
     attributes:
-      label: 你想制作什么 / What were you trying to create?
+      label: 制作目标 / Creation goal
     validations:
       required: true
   - type: textarea
     id: blocked
     attributes:
-      label: 卡在哪里 / Where did you get blocked?
+      label: 遇到的阻塞 / Blocking point
     validations:
       required: true
   - type: textarea

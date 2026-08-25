@@ -1,6 +1,6 @@
 # enemy-pack template
 
-Start here when you only want to add an enemy and its action pattern.
+Use this template to add an enemy and its action pattern.
 
 This template will contain the smallest MOD information, one example enemy, its actions, Chinese and English text, and a way to enter battle against it.
 

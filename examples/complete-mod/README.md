@@ -13,4 +13,4 @@
 
 **当前状态：准备中。** 完整文件尚未加入，这个目录现在还不能运行。
 
-如果你不想从成品开始修改，而是想从空白结构开始，请根据目标选择 `templates/card-pack`、`templates/enemy-pack` 或 `templates/node-pack`。
+需要从空白结构开始时，可根据目标选择 `templates/card-pack`、`templates/enemy-pack` 或 `templates/node-pack`。

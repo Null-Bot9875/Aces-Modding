@@ -1,5 +1,5 @@
 name: 能力请求 / Capability request
-description: 说明现有 Card、Enemy、Node 内容包为什么无法实现你的 MOD 目标。
+description: 说明现有 Card、Enemy、Node 内容包为什么无法实现目标 MOD。
 title: "[Capability] "
 labels:
   - capability-request

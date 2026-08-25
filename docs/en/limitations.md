@@ -8,4 +8,4 @@ The following are not currently available:
 - additional gameplay hooks beyond configuration content packs;
 - internal game interfaces not listed in the documentation.
 
-If your MOD depends on one of these capabilities, choose “Capability request” in GitHub Issues and describe what you want to create and where you are blocked.
+For MODs that depend on one of these capabilities, choose “Capability request” in GitHub Issues and describe the intended content and current blocker.

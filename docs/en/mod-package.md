@@ -11,10 +11,10 @@ A configuration-first MOD usually needs to answer four questions:
 
 The exact directory tree and required files are in preparation. When available, this page will provide:
 
-- A directory tree you can copy;
+- A copyable directory tree;
 - the purpose of every file;
 - which files are required;
 - loading rules when several MODs are installed;
 - errors shown for missing files or naming conflicts.
 
-Until then, do not guess filenames. You can view the [complete example](../../examples/complete-mod/README.en.md) to see how these resources will be organized.
+Until then, filenames should not be inferred. The [complete example](../../examples/complete-mod/README.en.md) shows how these resources will be organized.

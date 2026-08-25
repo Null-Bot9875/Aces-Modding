@@ -10,6 +10,6 @@ This tutorial will begin with the smallest possible card and progressively add:
 
 ## Current status
 
-The tutorial and `card-pack` template are in preparation. There is not yet a card configuration you can copy directly.
+The tutorial and `card-pack` template are in preparation. No card configuration is available for direct copying yet.
 
-If your card needs an effect not covered by the documentation, choose “Capability request” in GitHub Issues and describe what should happen when the player uses it.
+For card effects not covered by the documentation, choose “Capability request” in GitHub Issues and describe the expected result when the card is played.

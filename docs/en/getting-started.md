@@ -1,12 +1,12 @@
 # Getting started
 
-This tutorial will guide you through your first Aces MOD: copy an example, change one piece of content, load it in the game, and confirm that the change worked.
+This tutorial completes a first Aces MOD by copying an example, changing one piece of content, loading the MOD, and confirming the result.
 
 ## Current status
 
 This tutorial is in preparation and there is not yet a runnable template. Do not begin by copying the empty placeholder directories.
 
-When available, the tutorial will guide you through:
+When available, the tutorial follows these steps:
 
 1. Checking the game version and MOD location;
 2. copying the [complete example](../../examples/complete-mod/README.en.md);
@@ -15,4 +15,4 @@ When available, the tutorial will guide you through:
 5. checking the result;
 6. using the [debugging guide](debugging.md) when loading fails.
 
-If you want the first tutorial to address a particular problem, choose “MOD author feedback” in GitHub Issues.
+For requests about the first tutorial, choose “MOD author feedback” in GitHub Issues.

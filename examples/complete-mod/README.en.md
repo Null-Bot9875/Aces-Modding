@@ -1,6 +1,6 @@
 # Complete MOD example
 
-This is the best finished example to read and modify when creating your first MOD.
+This is the recommended finished example for creating a first MOD through incremental changes.
 
 The example will contain:
 
@@ -13,4 +13,4 @@ The example will contain:
 
 **Current status: In preparation.** The complete files have not been added, so this directory cannot run yet.
 
-If you prefer to begin from an empty structure, choose `templates/card-pack`, `templates/enemy-pack`, or `templates/node-pack` according to your goal.
+For an empty starting structure, choose `templates/card-pack`, `templates/enemy-pack`, or `templates/node-pack` according to the content goal.

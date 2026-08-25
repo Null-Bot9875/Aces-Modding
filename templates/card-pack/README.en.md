@@ -1,6 +1,6 @@
 # card-pack template
 
-Start here when you only want to add cards without creating new enemies or Nodes.
+Use this template to add cards without creating new enemies or Nodes.
 
 This template will contain the smallest MOD information, one example card, Chinese and English text, and a way to check the card in the game.
 

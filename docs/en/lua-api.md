@@ -1,4 +1,4 @@
-# Lua APIs you can use
+# Available Lua APIs
 
 Lua APIs handle loading, logging, and lifecycle behavior beyond configuration content.
 

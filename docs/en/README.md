@@ -1,13 +1,13 @@
 # Documentation
 
-If this is your first visit, begin with [Getting started](getting-started.md). To see a finished structure first, open the [complete example](../../examples/complete-mod/README.en.md).
+For a first visit, begin with [Getting started](getting-started.md). For a finished structure, open the [complete example](../../examples/complete-mod/README.en.md).
 
 - [Getting started](getting-started.md)
 - [What a MOD package contains](mod-package.md)
 - [Card configuration](content/card.md)
 - [Enemy configuration](content/enemy.md)
 - [Node configuration](content/node.md)
-- [Lua APIs you can use](lua-api.md)
+- [Available Lua APIs](lua-api.md)
 - [Troubleshooting](debugging.md)
 - [Game updates and MOD compatibility](compatibility.md)
 - [Current limitations](limitations.md)

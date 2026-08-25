@@ -2,15 +2,15 @@
 
 [English](README.en.md)
 
-想为 Aces 制作自己的卡牌、敌人和 Node？从这里开始。
+本仓库提供 Aces Card、Enemy 和 Node MOD 的作者资料。
 
 这套资料面向以配置为主的内容 MOD，无需修改游戏本体，也无需先学习完整的游戏源码。
 
-> 当前是作者资料预览版。标记为“准备中”的教程、模板和示例还不能直接用于制作 MOD。
+> Card 教程和 `card-pack` 已提供第一版。Enemy、Node 和完整示例仍在准备中。
 
-## 可制作内容
+## 第一版计划覆盖
 
-- 新卡牌及其效果；
+- 复用游戏已有 Skill、Target 和费用 Effect 的新 Card；
 - 新敌人和行动方式；
 - 包含敌人、奖励等内容的新 Node；
 - 把这些内容组合成一段可以游玩的完整内容。
@@ -32,6 +32,9 @@
 
 - [文档目录](docs/zh-cn/README.md)
 - [MOD 包由什么组成](docs/zh-cn/mod-package.md)
+- [通用配置格式](docs/zh-cn/configuration.md)
+- [PNG 资源](docs/zh-cn/assets.md)
+- [多语言](docs/zh-cn/localization.md)
 - [Card 配置教学](docs/zh-cn/content/card.md)
 - [Enemy 配置教学](docs/zh-cn/content/enemy.md)
 - [Node 配置教学](docs/zh-cn/content/node.md)

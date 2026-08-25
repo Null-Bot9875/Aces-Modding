@@ -10,3 +10,4 @@
 - 把公开文档改为 MOD 作者视角，并把完整示例改名为 `complete-mod`。
 - 约定 `game-lua` 随游戏版本提供一份同版本 Lua 文件压缩包。
 - 公开文档统一改用无人称的客观陈述。
+- 完成 Getting Started、通用配置、Card、Lua API、调试、资源和多语言文档第一版，并提供可直接试用的 `card-pack` 模板。

@@ -10,3 +10,4 @@
 - Rewrote the public documentation for MOD authors and renamed the complete example to `complete-mod`.
 - Defined `game-lua` as one matching Lua archive for each game version.
 - Standardized public documentation on impersonal wording.
+- Added first drafts for Getting Started, generic configuration, Card, Lua API, debugging, assets, and localization, plus a ready-to-try `card-pack` template.

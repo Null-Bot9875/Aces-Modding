@@ -2,15 +2,15 @@
 
 [中文](README.md)
 
-Create custom cards, enemies, and Nodes for Aces from this repository.
+This repository provides author resources for Aces Card, Enemy, and Node MODs.
 
 These resources focus on configuration-first content MODs. Modifying the game itself or studying the entire game codebase is not required.
 
-> This is currently a preview of the author resources. Tutorials, templates, and examples marked “In preparation” cannot yet be used directly to create a MOD.
+> The first Card tutorial and `card-pack` are available. Enemy, Node, and the complete example remain in preparation.
 
-## Content goals
+## Version-one goals
 
-- New cards and effects;
+- new Cards that reuse existing game Skills, Targets, and cost Effects;
 - new enemies and action patterns;
 - new Nodes containing enemies, rewards, and related content;
 - complete playable content assembled from these pieces.
@@ -32,6 +32,9 @@ These resources focus on configuration-first content MODs. Modifying the game it
 
 - [Documentation index](docs/en/README.md)
 - [What a MOD package contains](docs/en/mod-package.md)
+- [General configuration format](docs/en/configuration.md)
+- [PNG assets](docs/en/assets.md)
+- [Localization](docs/en/localization.md)
 - [Card configuration tutorial](docs/en/content/card.md)
 - [Enemy configuration tutorial](docs/en/content/enemy.md)
 - [Node configuration tutorial](docs/en/content/node.md)

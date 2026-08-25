@@ -1,18 +1,109 @@
 # Getting started
 
-This tutorial completes a first Aces MOD by copying an example, changing one piece of content, loading the MOD, and confirming the result.
+This tutorial uses the `card-pack` template to complete a first local configuration MOD.
 
-## Current status
+## Preparation
 
-This tutorial is in preparation and there is not yet a runnable template. Do not begin by copying the empty placeholder directories.
+- Confirm the game version. `mod.json.supportedGameVersions` uses `major.minor`, such as `1.0`.
+- Use a text editor that supports UTF-8 without BOM.
+- Exit the game before copying or changing MOD files.
+- Use a new Rogue run so that the test reward does not affect a normal save.
 
-When available, the tutorial follows these steps:
+## 1. Copy the template
 
-1. Checking the game version and MOD location;
-2. copying the [complete example](../../examples/complete-mod/README.en.md);
-3. changing one card;
-4. launching the game and entering the example Node;
-5. checking the result;
-6. using the [debugging guide](debugging.md) when loading fails.
+The `Mods/` directory is located beside the game executable:
 
-For requests about the first tutorial, choose “MOD author feedback” in GitHub Issues.
+```text
+<game-root>/
+  <game-executable>.exe
+  Mods/
+```
+
+Copy the entire [`templates/card-pack`](../../templates/card-pack/README.en.md) directory to:
+
+```text
+<game-root>/Mods/example.cardpack/
+```
+
+`mod.json` must be directly inside that directory:
+
+```text
+Mods/example.cardpack/mod.json            # correct
+Mods/example.cardpack/card-pack/mod.json  # incorrect
+```
+
+## 2. Change the MOD identity
+
+Open `mod.json` and change at least:
+
+```json
+{
+  "id": "author.examplecard",
+  "name": "Example Card Pack",
+  "author": "MOD Author",
+  "version": "0.1.0",
+  "supportedGameVersions": ["1.0"]
+}
+```
+
+The ID is normalized to lowercase and must contain at least two parts separated by `.`. The recommended format is `author-or-organization.project`.
+
+The folder name may differ from the ID, but matching names make troubleshooting easier.
+
+## 3. Change the example Card
+
+Open:
+
+```text
+config/card_def/config/cards.lua
+```
+
+For the first edit, change only:
+
+- `cardId`: use a positive integer not used by another MOD;
+- `name`: change the display name;
+- `rare`: retain the example or reference an existing Card;
+- `type`, `tagMap`, `targetIds`, `costEffect`, and `skillList`: retain the example values.
+
+Change the matching `cardId` in:
+
+```text
+config/act_card_pool_def/base_pool/cards.lua
+```
+
+## 4. Enable and cold-start
+
+1. Launch the game and open the MOD manager.
+2. Enable the new MOD ID.
+3. Apply the selection.
+4. Exit and restart the game.
+
+The current version loads MODs during cold start. Changes to enabled state, order, or configuration require a restart; runtime hot reload is not available.
+
+A successful `main.lua` load writes:
+
+```text
+Example Card Pack loaded
+```
+
+## 5. Verify the Card
+
+The template uses test pool `990001` to override existing reward `10003`:
+
+1. Start a new Rogue run with `baseId=501`.
+2. Reach a card reward that resolves to `rewardId=10003`.
+3. The choices should contain the example Card and Core Card `2000`.
+4. Select the example Card and confirm that it enters the current Rogue deck.
+5. Restart and continue the same run, then confirm that the Card remains present.
+6. Draw the Card in battle, select a valid target, and play it.
+
+Disable the template after testing. A distributed MOD should replace the test override for `rewardId=10003` with its final content design.
+
+## Next steps
+
+- [MOD package structure](mod-package.md)
+- [General configuration format](configuration.md)
+- [Card configuration tutorial](content/card.md)
+- [PNG assets](assets.md)
+- [Localization](localization.md)
+- [Troubleshooting](debugging.md)

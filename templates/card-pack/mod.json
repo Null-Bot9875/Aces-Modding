@@ -1,0 +1,10 @@
+{
+  "id": "example.cardpack",
+  "name": "Example Card Pack",
+  "author": "MOD Author",
+  "version": "0.1.0",
+  "supportedGameVersions": [
+    "1.0"
+  ],
+  "description": "Example tactical Card, reward pool, and manual test path."
+}

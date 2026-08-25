@@ -1,0 +1,14 @@
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local test output
+tmp/
+logs/
+*.log
+
+# Packaged MOD output
+dist/
+*.zip

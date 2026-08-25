@@ -1,0 +1,41 @@
+name: 缺陷报告 / Bug report
+description: 报告能够稳定复现的 MOD 加载或运行问题。
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 游戏版本 / Game version
+    validations:
+      required: true
+  - type: dropdown
+    id: content
+    attributes:
+      label: 内容类型 / Content type
+      options:
+        - card-pack
+        - enemy-pack
+        - node-pack
+        - Lua API
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤 / Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 期望结果与实际结果 / Expected and actual results
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / Logs
+      description: 请移除敏感信息。Remove sensitive information before submitting.

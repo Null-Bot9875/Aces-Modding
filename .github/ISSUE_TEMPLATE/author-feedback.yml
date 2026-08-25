@@ -1,0 +1,23 @@
+name: MOD 作者体验反馈 / Author feedback
+description: 反馈安装、编辑、启动、调试或完成内容闭环时遇到的问题。
+title: "[Author Feedback] "
+labels:
+  - author-feedback
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 你想制作什么 / What were you trying to create?
+    validations:
+      required: true
+  - type: textarea
+    id: blocked
+    attributes:
+      label: 卡在哪里 / Where did you get blocked?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 复现步骤与日志 / Reproduction steps and logs
+      description: 请移除敏感信息。Remove sensitive information before submitting.

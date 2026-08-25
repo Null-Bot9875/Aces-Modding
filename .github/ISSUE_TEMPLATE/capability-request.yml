@@ -1,0 +1,22 @@
+name: 能力请求 / Capability request
+description: 说明现有 Card、Enemy、Node 内容包为什么无法实现你的 MOD 目标。
+title: "[Capability] "
+labels:
+  - capability-request
+body:
+  - type: textarea
+    id: mod
+    attributes:
+      label: 想制作的 MOD / MOD idea
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: 当前缺少什么 / Missing capability
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: 已尝试的方法 / Attempted workaround

@@ -47,6 +47,8 @@ return {
 
 Core references in `tagMap`, `targetIds`, `costEffect`, and `skillList` are checked during installation. A missing reference fails and rolls back the complete MOD configuration installation pass.
 
+See the [Configuration field reference](../reference/config-fields.md) for synchronized field changes and [Reusable Core configuration](../reference/core-configs.md) for the currently verified starting combination.
+
 ## Automatic defaults
 
 The Card author adapter supplies fixed defaults for omitted fields:

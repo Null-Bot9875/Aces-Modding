@@ -17,6 +17,8 @@ robot_def Enemy 11999
 
 `robot_def` 决定 Enemy 使用哪个 Core 基础数据和哪条行动链。`sequence` 决定每个回合读取哪个行动卡池。`config` 决定该卡池可执行哪些 Card。
 
+三类完整 row 的全部字段和 ID 联动见[配置字段参考](../reference/config-fields.md)，当前已核实的 Core 机体和行动 Card 见[可复用的 Core 配置](../reference/core-configs.md)。
+
 ## 1. 定义 Enemy
 
 文件位置：

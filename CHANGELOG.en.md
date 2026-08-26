@@ -13,3 +13,4 @@
 - Added first drafts for Getting Started, generic configuration, Card, Lua API, debugging, assets, and localization, plus a ready-to-try `card-pack` template.
 - Added an installable Node-and-Enemy `complete-mod` human-validation candidate, detailed configuration tutorials, and a Card/Node/Enemy manual testing checklist.
 - Deferred separate `enemy-pack` and `node-pack` extraction until the integrated example passes human validation, avoiding unvalidated parallel structures.
+- Added reusable Core configuration, field references for eight configuration types, and a catalog of all 44 Node Groups currently used by EP `1061`.

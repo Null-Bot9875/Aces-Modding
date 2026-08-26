@@ -47,6 +47,8 @@ return {
 
 安装时会校验 `tagMap`、`targetIds`、`costEffect` 和 `skillList` 的 Core 引用。引用不存在时，整轮 MOD 配置安装失败并回滚。
 
+字段的完整联动规则见[配置字段参考](../reference/config-fields.md)，当前已经核实的 Core 起始组合见[可复用的 Core 配置](../reference/core-configs.md)。
+
 ## 自动默认值
 
 缺少下列字段时，Card 作者适配器会填入固定默认值：

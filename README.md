@@ -24,6 +24,7 @@
 | 只制作卡牌 | [card-pack 模板](templates/card-pack/README.md) |
 | 学习 Enemy 配置 | [Enemy 配置教学](docs/zh-cn/content/enemy.md) |
 | 学习 Node 配置 | [Node 配置教学](docs/zh-cn/content/node.md) |
+| 查找可复用 Core 配置和字段含义 | [配置与引用参考](docs/zh-cn/reference/README.md) |
 | 进行首版人工测试 | [人工测试清单](docs/zh-cn/manual-testing.md) |
 | MOD 没有加载或效果不对 | [调试指南](docs/zh-cn/debugging.md) |
 
@@ -39,6 +40,7 @@
 - [Card 配置教学](docs/zh-cn/content/card.md)
 - [Enemy 配置教学](docs/zh-cn/content/enemy.md)
 - [Node 配置教学](docs/zh-cn/content/node.md)
+- [配置与引用参考](docs/zh-cn/reference/README.md)
 - [首版人工测试清单](docs/zh-cn/manual-testing.md)
 - [可以使用的 Lua API](docs/zh-cn/lua-api.md)
 - [当前可以使用什么](docs/zh-cn/status.md)

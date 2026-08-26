@@ -17,6 +17,8 @@ robot_def Enemy 11999
 
 `robot_def` selects Core base data and an action chain. `sequence` selects the action pool for each turn. `config` defines the Cards available in each pool.
 
+See the [Configuration field reference](../reference/config-fields.md) for every field and synchronized ID change across the three complete-row types. See [Reusable Core configuration](../reference/core-configs.md) for the verified Core unit and action Cards.
+
 ## 1. Define the Enemy
 
 File location:

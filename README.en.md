@@ -24,6 +24,7 @@ These resources focus on configuration-first content MODs. Modifying the game it
 | Create cards only | [card-pack template](templates/card-pack/README.en.md) |
 | Learn Enemy configuration | [Enemy configuration tutorial](docs/en/content/enemy.md) |
 | Learn Node configuration | [Node configuration tutorial](docs/en/content/node.md) |
+| Find reusable Core configuration and field meanings | [Configuration and reference guide](docs/en/reference/README.md) |
 | Run version-one human tests | [Manual testing checklist](docs/en/manual-testing.md) |
 | Diagnose loading or behavior problems | [Debugging guide](docs/en/debugging.md) |
 
@@ -39,6 +40,7 @@ These resources focus on configuration-first content MODs. Modifying the game it
 - [Card configuration tutorial](docs/en/content/card.md)
 - [Enemy configuration tutorial](docs/en/content/enemy.md)
 - [Node configuration tutorial](docs/en/content/node.md)
+- [Configuration and reference guide](docs/en/reference/README.md)
 - [Version-one manual testing checklist](docs/en/manual-testing.md)
 - [Available Lua APIs](docs/en/lua-api.md)
 - [What is currently available](docs/en/status.md)

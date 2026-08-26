@@ -9,8 +9,7 @@
 3. 是否多套了一层解压目录；
 4. `mod.json` 是否为合法 JSON；
 5. `id` 是否符合小写点分格式；
-6. `supportedGameVersions` 是否包含当前 `major.minor`；
-7. 是否安装了另一个相同 `id` 的 MOD。
+6. 是否安装了另一个相同 `id` 的 MOD。
 
 ## MOD 出现但无法启用
 
@@ -24,6 +23,27 @@
 - 配置批次路径、返回值或 row 错误。
 
 `dependencies` 的缺失、未启用或顺序问题通常是 warning，不会自动调整 MOD 顺序。
+
+`supportedGameVersions` 不包含当前 `major.minor` 时也会显示 Warning，但不会仅因这项 Warning 阻止启用。版本不匹配表示兼容性未经声明，不表示内容已经验证可用。
+
+## Node 或 Enemy 没有生效
+
+按引用方向检查：
+
+```text
+地图刷新组 nodeId
+  -> Node.id
+Node.robot
+  -> Enemy.id
+Enemy.chainId
+  -> 行动链 chainId
+行动链 poolId
+  -> 行动池 poolId
+行动池 cardId
+  -> 已存在的 Card
+```
+
+地图刷新组使用 `append` 时，目标 Node 可能因随机选择而不出现。先对照 [`complete-mod`](../../examples/complete-mod/README.md) 的 `replace` 示例完成稳定验证。
 
 ## 启用后启动失败
 
@@ -93,3 +113,5 @@
 - 对应 `Player.log`。
 
 提交前移除账号、绝对路径中的个人信息和其他敏感内容。
+
+首版 Card、Node、Enemy 的统一记录格式见[人工测试清单](manual-testing.md)。

@@ -1,6 +1,8 @@
 # card-pack template
 
-This is the current template for a regular tactical Card. The example reuses existing game Skills, Targets, cost effects, and Tags; it does not add custom battle logic.
+This is the human-validation candidate template for a regular tactical Card. The example reuses existing game Skills, Targets, cost effects, and Tags; it does not add custom battle logic.
+
+> The template overrides Core `rewardId=10003`. Use only a dedicated test save, then disable the MOD or remove it from `Mods/` after testing.
 
 ## Contents
 
@@ -37,7 +39,9 @@ card-pack/
 6. Select the example Card and confirm that it enters the current Rogue deck.
 7. Restart and continue the same run, then confirm that the Card remains present.
 8. Draw the Card in battle, select a valid target, and play it.
+9. Save the matching `Player.log`.
+10. Disable the MOD, cold-start, and create a new run, then confirm that the test Card no longer appears.
 
-Disable the template after testing so that the test reward override does not continue affecting normal play.
+Disable or remove the template after testing so that the test reward override does not continue affecting normal play. See the [manual testing checklist](../../docs/en/manual-testing.md) for the complete record.
 
 See the [Card configuration tutorial](../../docs/en/content/card.md) for field details.

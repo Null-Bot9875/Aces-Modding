@@ -1,6 +1,6 @@
 # Documentation
 
-For a first local MOD, begin with [Getting started](getting-started.md). The Card template is available; Enemy, Node, and the complete example remain in preparation.
+For a first local MOD, begin with [Getting started](getting-started.md). The Card template and integrated Node-and-Enemy example are available as human-validation candidates.
 
 - [Getting started](getting-started.md)
 - [What a MOD package contains](mod-package.md)
@@ -10,10 +10,11 @@ For a first local MOD, begin with [Getting started](getting-started.md). The Car
 - [Card configuration](content/card.md)
 - [Enemy configuration](content/enemy.md)
 - [Node configuration](content/node.md)
+- [Version-one manual testing checklist](manual-testing.md)
 - [Available Lua APIs](lua-api.md)
 - [Troubleshooting](debugging.md)
 - [Game updates and MOD compatibility](compatibility.md)
 - [Current limitations](limitations.md)
 - [What is currently available](status.md)
 
-Enemy and Node pages marked “In preparation” do not yet contain copyable configuration or working steps and are not runnable MODs.
+The separate `enemy-pack` and `node-pack` templates remain in preparation. Initial testing uses `card-pack` and `complete-mod`, with separate Card, Node, and Enemy results.

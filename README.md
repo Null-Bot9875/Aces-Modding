@@ -6,7 +6,7 @@
 
 这套资料面向以配置为主的内容 MOD，无需修改游戏本体，也无需先学习完整的游戏源码。
 
-> Card 教程和 `card-pack` 已提供第一版。Enemy、Node 和完整示例仍在准备中。
+> 当前为本地人工验收候选。`card-pack` 和 Node+Enemy 联合示例已经加入，Card、Node、Enemy 仍需分别完成人工测试。公开发布前还需确定 [LICENSE](LICENSE.md)。
 
 ## 第一版计划覆盖
 
@@ -20,13 +20,14 @@
 | 目标 | 从这里进入 |
 | --- | --- |
 | 第一次制作 MOD | [从这里开始](docs/zh-cn/getting-started.md) |
-| 先看一个完整 MOD，再照着修改 | [完整示例](examples/complete-mod/README.md) |
+| 测试 Node 与 Enemy 的完整引用链 | [Node 与 Enemy 完整示例](examples/complete-mod/README.md) |
 | 只制作卡牌 | [card-pack 模板](templates/card-pack/README.md) |
-| 只制作敌人 | [enemy-pack 模板](templates/enemy-pack/README.md) |
-| 从零制作一个 Node | [node-pack 模板](templates/node-pack/README.md) |
+| 学习 Enemy 配置 | [Enemy 配置教学](docs/zh-cn/content/enemy.md) |
+| 学习 Node 配置 | [Node 配置教学](docs/zh-cn/content/node.md) |
+| 进行首版人工测试 | [人工测试清单](docs/zh-cn/manual-testing.md) |
 | MOD 没有加载或效果不对 | [调试指南](docs/zh-cn/debugging.md) |
 
-`examples/complete-mod` 是用来阅读和修改的完整成品示例；`templates/node-pack` 是从零开始时复制的空白模板。两者用途不同。
+`templates/enemy-pack` 和 `templates/node-pack` 尚未提供独立可运行文件。联合示例完成人工验证后，再从已验证结构中拆分这两个模板。
 
 ## 文档
 
@@ -38,6 +39,7 @@
 - [Card 配置教学](docs/zh-cn/content/card.md)
 - [Enemy 配置教学](docs/zh-cn/content/enemy.md)
 - [Node 配置教学](docs/zh-cn/content/node.md)
+- [首版人工测试清单](docs/zh-cn/manual-testing.md)
 - [可以使用的 Lua API](docs/zh-cn/lua-api.md)
 - [当前可以使用什么](docs/zh-cn/status.md)
 - [当前限制](docs/zh-cn/limitations.md)

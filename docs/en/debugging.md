@@ -9,8 +9,7 @@ Check in order:
 3. The archive did not create an extra nested directory.
 4. `mod.json` is valid JSON.
 5. The ID uses the lowercase dotted format.
-6. `supportedGameVersions` contains the current `major.minor`.
-7. No other installed MOD uses the same ID.
+6. No other installed MOD uses the same ID.
 
 ## MOD appears but cannot be enabled
 
@@ -24,6 +23,27 @@ Check Blocking issues shown by the manager:
 - invalid configuration batch path, return value, or row.
 
 Missing, disabled, or incorrectly ordered `dependencies` normally produce warnings and do not reorder MODs automatically.
+
+A missing current `major.minor` in `supportedGameVersions` also produces a Warning, but that Warning alone does not block enablement. A version mismatch means compatibility is undeclared, not that the content has been validated.
+
+## Node or Enemy missing
+
+Check references in this direction:
+
+```text
+Map refresh group nodeId
+  -> Node.id
+Node.robot
+  -> Enemy.id
+Enemy.chainId
+  -> action-chain chainId
+Action-chain poolId
+  -> action-pool poolId
+Action-pool cardId
+  -> existing Card
+```
+
+With `append` on a map refresh group, random selection may omit the intended Node. First complete a deterministic check against the `replace` example in [`complete-mod`](../../examples/complete-mod/README.en.md).
 
 ## Startup fails after enabling
 
@@ -93,3 +113,5 @@ Keep:
 - matching `Player.log`.
 
 Remove account details, personal information in absolute paths, and other sensitive content before submission.
+
+See the [manual testing checklist](manual-testing.md) for the shared Card, Node, and Enemy result record.

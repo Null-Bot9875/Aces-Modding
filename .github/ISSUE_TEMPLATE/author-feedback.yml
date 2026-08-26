@@ -4,6 +4,23 @@ title: "[Author Feedback] "
 labels:
   - author-feedback
 body:
+  - type: input
+    id: version
+    attributes:
+      label: 游戏版本 / Game version
+    validations:
+      required: true
+  - type: dropdown
+    id: content
+    attributes:
+      label: 使用的入口 / Starting point
+      options:
+        - card-pack
+        - complete-mod
+        - Documentation only
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: goal
     attributes:
@@ -20,4 +37,4 @@ body:
     id: evidence
     attributes:
       label: 复现步骤与日志 / Reproduction steps and logs
-      description: 请移除敏感信息。Remove sensitive information before submitting.
+      description: 包含操作系统、MOD 目录树和启用顺序；移除敏感信息。Include the OS, MOD directory tree, and enabled order; remove sensitive information.

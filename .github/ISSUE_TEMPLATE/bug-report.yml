@@ -16,10 +16,18 @@ body:
       label: 内容类型 / Content type
       options:
         - card-pack
+        - complete-mod
         - enemy-pack
         - node-pack
         - Lua API
         - Other
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 系统与安装结构 / OS and installation structure
+      description: 操作系统、MOD 目录树和启用顺序。Include the OS, MOD directory tree, and enabled order.
     validations:
       required: true
   - type: textarea

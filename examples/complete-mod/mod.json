@@ -1,0 +1,10 @@
+{
+  "id": "aces.example.nodeenemy",
+  "name": "Node and Chain Enemy Example",
+  "author": "Aces Team",
+  "version": "0.1.0",
+  "supportedGameVersions": [
+    "1.0"
+  ],
+  "description": "Adds one reachable Rogue battle Node and one deterministic two-round chain Enemy."
+}

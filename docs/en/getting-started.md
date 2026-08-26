@@ -1,6 +1,8 @@
 # Getting started
 
-This tutorial uses the `card-pack` template to complete a first local configuration MOD.
+This tutorial uses the `card-pack` human-validation candidate to complete a first local configuration MOD.
+
+The template overrides Core `rewardId=10003` and is limited to a dedicated test save. See the [manual testing checklist](manual-testing.md) for the complete version-one record.
 
 ## Preparation
 
@@ -96,8 +98,9 @@ The template uses test pool `990001` to override existing reward `10003`:
 4. Select the example Card and confirm that it enters the current Rogue deck.
 5. Restart and continue the same run, then confirm that the Card remains present.
 6. Draw the Card in battle, select a valid target, and play it.
+7. Save the matching `Player.log`.
 
-Disable the template after testing. A distributed MOD should replace the test override for `rewardId=10003` with its final content design.
+After testing, disable the template, cold-start, and create a new run, then confirm that the example Card no longer appears. A distributed MOD should replace the test override for `rewardId=10003` with its final content design.
 
 ## Next steps
 
@@ -107,3 +110,4 @@ Disable the template after testing. A distributed MOD should replace the test ov
 - [PNG assets](assets.md)
 - [Localization](localization.md)
 - [Troubleshooting](debugging.md)
+- [Version-one manual testing checklist](manual-testing.md)

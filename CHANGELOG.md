@@ -11,3 +11,5 @@
 - 约定 `game-lua` 随游戏版本提供一份同版本 Lua 文件压缩包。
 - 公开文档统一改用无人称的客观陈述。
 - 完成 Getting Started、通用配置、Card、Lua API、调试、资源和多语言文档第一版，并提供可直接试用的 `card-pack` 模板。
+- 加入可安装的 Node+Enemy `complete-mod` 人工验收候选、详细配置教学和 Card/Node/Enemy 人工测试清单。
+- `enemy-pack` 与 `node-pack` 改为等待联合示例人工验证后再拆分，避免发布未经验证的独立结构。

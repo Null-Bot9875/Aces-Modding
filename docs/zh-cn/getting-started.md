@@ -1,6 +1,8 @@
 # 从这里开始
 
-本教程使用 `card-pack` 模板完成第一个本地配置型 MOD。
+本教程使用 `card-pack` 人工验收候选模板完成第一个本地配置型 MOD。
+
+模板会覆盖 Core `rewardId=10003`，只使用专门的测试存档。首版完整记录格式见[人工测试清单](manual-testing.md)。
 
 ## 准备
 
@@ -96,8 +98,9 @@ Example Card Pack loaded
 4. 选择示例 Card，确认进入当前 Rogue 牌组。
 5. 重启并继续同一战役，确认 Card 仍然存在。
 6. 在战斗中抽取、选择合法目标并打出。
+7. 保存本轮对应的 `Player.log`。
 
-测试完成后禁用模板。正式 MOD 应使用独立内容设计替代对 `rewardId=10003` 的测试覆盖。
+测试完成后禁用模板，冷启动并新建战役，确认示例 Card 不再出现。正式 MOD 应使用独立内容设计替代对 `rewardId=10003` 的测试覆盖。
 
 ## 下一步
 
@@ -107,3 +110,4 @@ Example Card Pack loaded
 - [PNG 资源](assets.md)
 - [多语言](localization.md)
 - [调试指南](debugging.md)
+- [首版人工测试清单](manual-testing.md)

@@ -1,7 +1,7 @@
 # enemy-pack template
 
-Use this template to add an enemy and its action pattern.
+This directory will provide a separate starting point for adding an Enemy and its action pattern.
 
 This template will contain the smallest MOD information, one example enemy, its actions, Chinese and English text, and a way to enter battle against it.
 
-**Current status: In preparation.** There are no runnable files here yet, so do not copy this directory. To see how Card, Enemy, and Node content fit together, open the [complete example](../../examples/complete-mod/README.en.md).
+**Current status: Awaiting extraction.** No runnable files are present. Initial testing uses the [complete Node and Enemy example](../../examples/complete-mod/README.en.md). A separate template will be extracted from the same configuration after human validation, avoiding a second unvalidated structure.

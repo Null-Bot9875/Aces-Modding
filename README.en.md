@@ -6,7 +6,7 @@ This repository provides author resources for Aces Card, Enemy, and Node MODs.
 
 These resources focus on configuration-first content MODs. Modifying the game itself or studying the entire game codebase is not required.
 
-> The first Card tutorial and `card-pack` are available. Enemy, Node, and the complete example remain in preparation.
+> This is a local human-validation candidate. `card-pack` and the integrated Node-and-Enemy example are included, but Card, Node, and Enemy still require separate human tests. A public [LICENSE](LICENSE.md) must also be selected before publication.
 
 ## Version-one goals
 
@@ -20,13 +20,14 @@ These resources focus on configuration-first content MODs. Modifying the game it
 | Goal | Start here |
 | --- | --- |
 | Create a first MOD | [Getting started](docs/en/getting-started.md) |
-| Read and modify a complete MOD | [Complete example](examples/complete-mod/README.en.md) |
+| Test the complete Node-to-Enemy reference chain | [Complete Node and Enemy example](examples/complete-mod/README.en.md) |
 | Create cards only | [card-pack template](templates/card-pack/README.en.md) |
-| Create enemies only | [enemy-pack template](templates/enemy-pack/README.en.md) |
-| Build a Node from scratch | [node-pack template](templates/node-pack/README.en.md) |
+| Learn Enemy configuration | [Enemy configuration tutorial](docs/en/content/enemy.md) |
+| Learn Node configuration | [Node configuration tutorial](docs/en/content/node.md) |
+| Run version-one human tests | [Manual testing checklist](docs/en/manual-testing.md) |
 | Diagnose loading or behavior problems | [Debugging guide](docs/en/debugging.md) |
 
-`examples/complete-mod` is a complete example to read and modify. `templates/node-pack` is a blank starting point for building a Node from scratch.
+`templates/enemy-pack` and `templates/node-pack` do not yet contain separate runnable files. Both templates will be extracted from the validated structure after the integrated example passes human testing.
 
 ## Documentation
 
@@ -38,6 +39,7 @@ These resources focus on configuration-first content MODs. Modifying the game it
 - [Card configuration tutorial](docs/en/content/card.md)
 - [Enemy configuration tutorial](docs/en/content/enemy.md)
 - [Node configuration tutorial](docs/en/content/node.md)
+- [Version-one manual testing checklist](docs/en/manual-testing.md)
 - [Available Lua APIs](docs/en/lua-api.md)
 - [What is currently available](docs/en/status.md)
 - [Current limitations](docs/en/limitations.md)

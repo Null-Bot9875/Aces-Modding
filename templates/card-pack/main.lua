@@ -1,7 +1,7 @@
 local Main = Mod.CreateController()
 
 function Main:OnLoad()
-    self:Log("Example Card Pack loaded")
+    self:Log("Custom Card Pack example loaded")
 end
 
 return Main

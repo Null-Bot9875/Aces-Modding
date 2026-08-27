@@ -137,35 +137,42 @@ assetId = "cards/fire_drone.png"
 
 `assetId` 使用相对于 MOD `assets/` 目录的 PNG 路径。
 
-## 把 Card 放进奖励
+## 让 Card 出现在普通奖励中
 
 仅安装 `card_def.config` 会让配置可查询，但不会自动把 Card 放进奖励或牌组。
 
-[`card-pack`](../../../templates/card-pack/README.md) 使用两个额外批次完成可操作测试：
+普通 Card 奖励会从卡池 `10003` 选择候选 Card。要让新 Card 出现在这类奖励中，请在 `config/act_card_pool_def/base_pool/` 下添加一个 Lua 文件，把 Card 追加到卡池 `10003`。
 
-1. `act_card_pool_def.base_pool` 创建测试池 `990001`；
-2. `reward_def.config` 覆盖测试奖励 `10003`，使其读取该卡池。
-
-卡池批次使用组替换：
+[`card-pack`](../../../templates/card-pack/README.md) 使用下面的写法：
 
 ```lua
+local CARD_POOL_ENTRY_COPIES = 10
+local rows = {}
+
+for _ = 1, CARD_POOL_ENTRY_COPIES do
+    rows[#rows + 1] = {
+        cardId = 910001,
+        baseId = 501,
+        poolId = 10003,
+        minBaseLevel = 1,
+        maxBaseLevel = 10,
+        limitActIds = { -1 },
+    }
+end
+
 return {
     installKey = "poolId",
-    installValue = 990001,
-    rows = {
-        {
-            cardId = 910001,
-            baseId = 501,
-            poolId = 990001,
-            minBaseLevel = 1,
-            maxBaseLevel = 10,
-            limitActIds = { -1 },
-        },
-    },
+    installValue = 10003,
+    operation = "append",
+    rows = rows,
 }
 ```
 
-`installValue=990001` 只操作该卡池组。省略 `operation` 时默认整组 `replace`。
+`installKey` 和 `installValue` 指定要修改卡池 `10003`。这里必须保留 `operation="append"`，否则批次会按 `replace` 处理，把游戏原有的池成员替换掉。
+
+`act_card_pool_def.base_pool` 没有单独的 `weight` 字段。每个相同成员会提供一个随机抽取槽位，因此上面的 Card 有 10 个槽位。最终奖励按 `cardId` 去重，不会同时显示多张相同 Card。
+
+重复成员只会提高出现概率，不保证每次奖励都出现。制作自己的 MOD 时，请按玩法平衡调整 `CARD_POOL_ENTRY_COPIES`；如果只需要普通概率，改为 `1`。
 
 ## 游戏内验证
 

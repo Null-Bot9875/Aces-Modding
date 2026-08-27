@@ -6,5 +6,5 @@
   "supportedGameVersions": [
     "1.0"
   ],
-  "description": "Example tactical Card, reward pool, and manual test path."
+  "description": "Example Card with a custom Skill and Effect, appended to Core reward pool 10003."
 }

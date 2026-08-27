@@ -16,7 +16,6 @@ body:
       label: 内容类型 / Content type
       options:
         - card-pack
-        - complete-mod
         - enemy-pack
         - node-pack
         - Lua API

@@ -16,7 +16,7 @@ body:
       label: 使用的入口 / Starting point
       options:
         - card-pack
-        - complete-mod
+        - node-pack
         - Documentation only
         - Other
     validations:

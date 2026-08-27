@@ -42,6 +42,6 @@ card-pack/
 9. 保存本轮对应的 `Player.log`。
 10. 停用 MOD，冷启动并新建战役，确认测试 Card 不再出现。
 
-测试完成后禁用或移除模板，避免测试奖励覆盖继续影响正常游戏。完整记录格式见[人工测试清单](../../docs/zh-cn/manual-testing.md)。
+测试完成后禁用或移除模板，避免测试奖励覆盖继续影响正常游戏。
 
-详细字段说明见 [Card 配置教学](../../docs/zh-cn/content/card.md)。
+详细字段说明见 [Card 配置教学](../../docs/zh-cn/config/card.md)。

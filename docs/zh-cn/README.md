@@ -1,24 +1,8 @@
-# 文档目录
+# 中文文档
 
-首次制作本地 MOD，从[从这里开始](getting-started.md)进入。Card 模板与 Node+Enemy 联合示例已经提供为人工验收候选。
+这里提供制作 Aces MOD 时使用的中文参考。
 
-- [从这里开始](getting-started.md)
-- [一个 MOD 包含什么](mod-package.md)
-- [通用配置格式](configuration.md)
-- [PNG 资源](assets.md)
-- [多语言](localization.md)
-- [Card 配置](content/card.md)
-- [Enemy 配置](content/enemy.md)
-- [Node 配置](content/node.md)
-- [配置与引用参考](reference/README.md)
-  - [可复用的 Core 配置](reference/core-configs.md)
-  - [EP 1061 Node Group 目录](reference/node-groups.md)
-  - [配置字段参考](reference/config-fields.md)
-- [首版人工测试清单](manual-testing.md)
-- [可以使用的 Lua API](lua-api.md)
-- [遇到问题时如何排查](debugging.md)
-- [游戏更新与 MOD 兼容性](compatibility.md)
-- [当前限制](limitations.md)
-- [当前可以使用什么](status.md)
+- [`config/`](config/)：MOD 作者可以直接参考的配置文件说明。
+- [`concepts/`](concepts/)：解释配置文件中涉及的概念，例如 Trigger、Area 和 Attr。
 
-`enemy-pack` 和 `node-pack` 独立模板仍在准备中。首轮测试使用 `card-pack` 和 `complete-mod`，并分别记录 Card、Node、Enemy 结果。
+制作 MOD 时，先在 `config/` 中查找需要的配置，再到 `concepts/` 补充理解相关概念。

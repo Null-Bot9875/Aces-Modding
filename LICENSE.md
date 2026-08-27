@@ -55,10 +55,21 @@ Without separate prior written permission from EMINA STUDIO, you may not:
 
 All rights not expressly granted under this section are reserved by EMINA STUDIO and its licensors. Permission granted under this section terminates automatically if you violate its terms.
 
-## 4. Third-Party Materials
+## 4. Lawful and Responsible Use
+
+When using, modifying, publishing, or distributing materials from this repository, or when creating, publishing, or distributing NOVA MODs, you must:
+
+1. comply with all applicable laws and regulations, public order, good morals, and generally accepted community standards;
+2. respect the copyrights, trademarks, privacy, personality rights, and other lawful rights of third parties;
+3. avoid content or conduct that harasses, deceives, threatens, abuses, disrupts, or otherwise causes material harm to other players; and
+4. not exploit technical defects, security vulnerabilities, unintended behavior, or unauthorized access to damage, interfere with, obtain an unfair advantage over, or otherwise infringe the rights or interests of EMINA STUDIO, its licensors, or other players.
+
+To the extent permitted by applicable law and platform rules, EMINA STUDIO reserves the right to remove or request the removal of content that violates applicable law, this license, or applicable community standards; restrict or terminate access to services under its control; and take other reasonably necessary technical, administrative, or legal action to protect EMINA STUDIO, its licensors, the community, and other players.
+
+## 5. Third-Party Materials
 
 Third-party materials remain subject to their respective licenses and notices. Nothing in this license grants rights that EMINA STUDIO does not own or is not authorized to grant.
 
-## 5. Disclaimer
+## 6. Disclaimer
 
 THE MATERIALS COVERED BY THIS LICENSE ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, EMINA STUDIO AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY CLAIM, LOSS, OR DAMAGE ARISING FROM THE USE OF, OR INABILITY TO USE, THESE MATERIALS.

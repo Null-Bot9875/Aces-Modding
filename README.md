@@ -12,6 +12,7 @@
 - [`docs/zh-cn/config`](docs/zh-cn/config/)：制作 MOD 时可以直接参考的配置文件说明。
 - [`docs/zh-cn/concepts`](docs/zh-cn/concepts/)：配置文件涉及的概念说明，例如 Trigger、Area 和 Attr。
 - [`game-lua`](game-lua/README.md)：当前版本游戏 Lua 参考包。
+- [`game-config`](game-config/README.md)：当前版本精选游戏配置参考包。
 
 中文文档入口见 [`docs/zh-cn/README.md`](docs/zh-cn/README.md)。
 

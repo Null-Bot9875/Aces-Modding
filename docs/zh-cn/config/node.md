@@ -118,7 +118,7 @@ Node 中的引用：
 robot = 11999
 ```
 
-必须存在 `id=11999` 的 `robot_def` 完整 row。Enemy 的行动链和每回合 Card 见 [Enemy 配置教学](enemy.md)。
+必须存在 `id=11999` 的 `robot_def` 完整 row。Enemy 的行动链和每回合 Card 见 [Chain 配置参考](chains.md)。
 
 新增 Enemy、行动链或行动池 ID 后，按以下方向逐层检查：
 

@@ -234,7 +234,7 @@ effect = { 4089, 3014, 4090 },
 ```
 
 这段配置会依次执行 Effect `4089`、`3014` 和 `4090`。后一项需要读取前一项结果时，
-顺序不能交换。Effect 的字段、事件和前序结果读取规则见 [Effect 配置参考](effects.md)。
+顺序不能交换。Effect 的字段、事件和前序结果读取规则见 [Effect 配置参考](battle_effect_def.md)。
 
 ## 结算方式：`stack`
 
@@ -306,12 +306,3 @@ skillList = { 990801 },
 ```
 
 该 Card 必须能够进入 Drone 区，否则不会产生 `trigger=123` 对应的触发时机。
-
-## 常见错误
-
-- 把 Effect 的 `event` ID 填进 `trigger`：两者使用不同编号；
-- 把 `trigger=0` 理解为不会执行：它仍可以由 Card 或其他配置直接调用；
-- 需要响应自身时省略 `triggerEx.self=1`：异能可能响应其他己方 Card 的同类 Trigger；
-- 写反多个 Effect 的顺序：后一项可能无法读取前一项结果；
-- Card 不会产生所选 Trigger：例如普通战术 Card 不会产生“机体被派出”的 Trigger；
-- 使用 `visibility=1` 但没有填写 `desc`：详情中没有可展示的异能说明。

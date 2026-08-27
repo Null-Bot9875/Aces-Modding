@@ -92,4 +92,4 @@ Node and chain enemy example loaded
 
 模板 ID 不是保留号段。用于其他 MOD 前，必须更换 `990101`、`11999`、`1999`、`990201`、`990202`、`990301` 和 `990302`，避免与其他 MOD 冲突。
 
-字段说明见 [Enemy 配置教学](../../docs/zh-cn/config/enemy.md)和[Node 配置教学](../../docs/zh-cn/config/node.md)。
+Node 字段说明见 [Node 配置教学](../../docs/zh-cn/config/node.md)。

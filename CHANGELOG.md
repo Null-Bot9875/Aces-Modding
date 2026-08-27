@@ -6,6 +6,7 @@
 - 取消 `examples` 分类，将 Node+Enemy 联合内容迁入 `templates/node-pack`。
 - 删除尚未提供可运行工具的 `tools` 目录。
 - 加入 Aces `1.0.8` 游戏 Lua 参考压缩包。
+- 加入 Aces `1.0.8` 精选游戏配置参考压缩包，收录 Card、Node、Enemy 及其战斗行为依赖表。
 
 - 建立 Aces Modding 公开仓库骨架。
 - 确定初始内容范围以 Card、Enemy、Node 配置内容包为核心。

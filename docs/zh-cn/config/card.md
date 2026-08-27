@@ -2,7 +2,7 @@
 
 当前 Card 教学覆盖从手牌使用的普通战术 Card。Card 可以引用游戏已有配置，也可以引用同一个 MOD 新增的 Skill、Target 和费用 Effect。
 
-触发式异能和静态异能的完整配置分别见[触发式异能配置](skill_def.md)与[静态异能配置](static_def.md)。本页不覆盖音频、无人机、机体、设备或其他复杂 Card 形态。
+触发式异能和静态异能的完整配置分别见[触发式异能配置](skill_def.md)与 [`static_skill_def` 配置参考](static_skill_def.md)。本页不覆盖音频、无人机、机体、设备或其他复杂 Card 形态。
 
 ## 最小 Card
 
@@ -41,8 +41,8 @@ return {
 | `rare` | int | 稀有度值；参考同版本 Core Card |
 | `type` | list | Card 类型 ID 列表 |
 | `tagMap` | map | `tagId -> value`；所有 Tag 必须已存在 |
-| `targetIds` | list | 已存在的 Target ID 列表；见 [Target 配置参考](targets.md) |
-| `costEffect` | int | 已存在的费用 Effect ID；见 [Effect 配置参考](effects.md) |
+| `targetIds` | list | 已存在的 Target ID 列表；见 [Target 配置参考](battle_target_def.md) |
+| `costEffect` | int | 已存在的费用 Effect ID；见 [Effect 配置参考](battle_effect_def.md) |
 | `skillList` | list | 游戏已有或同一个 MOD 新增的 Skill ID 列表；结算关系见下方说明 |
 
 ### Target 与 Effect 的关系
@@ -117,9 +117,9 @@ keywordList = {}
 
 显式填写的空列表或数值不会被默认值覆盖。
 
-`staticList` 填写 Card 自带的静态异能 ID。静态异能的来源区域、目标范围、Condition 和 Attr 写法见[静态异能配置](static_def.md)。
+`staticList` 填写 Card 自带的静态异能 ID。静态异能的来源区域、目标范围、Condition 和 Attr 写法见 [`static_skill_def` 配置参考](static_skill_def.md)。
 
-`useConditions` 可以引用 Battle Condition；字段、类型和组合规则见 [Battle Condition 配置参考](conditions.md#battle-condition)。
+`useConditions` 可以引用 Battle Condition；字段、类型和组合规则见 [`battle_condition_def` 配置参考](battle_condition_def.md)。
 
 ## Card 图片
 

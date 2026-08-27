@@ -75,12 +75,12 @@ triggerEx = {},
 | `self` | `1` 或 `0` | `1` 表示事件来源必须是 Skill 所在 Card；`0` 表示事件来源不能是该 Card |
 | `src` | `1`、`2` 或 `3` | 筛选事件来源阵营：`1` 为己方，`2` 为敌方，`3` 为双方；省略时只响应己方事件 |
 | `srcTag` | Tag ID 列表 | 事件来源 Card 必须同时具有列表中的全部 Tag |
-| `srcCondition` | Battle Condition ID 列表 | 使用 [Battle Condition](../config/conditions.md) 筛选事件来源 Card |
-| `valueCondition` | Battle Condition ID 列表 | 使用 [Battle Condition](../config/conditions.md) 筛选 Trigger 携带的数值 |
-| `targetId` | Target ID | 使用 [Target](../config/targets.md) 和本次 Trigger 携带的信息生成 Skill 目标 |
+| `srcCondition` | Battle Condition ID 列表 | 使用 [`battle_condition_def`](../config/battle_condition_def.md) 筛选事件来源 Card |
+| `valueCondition` | Battle Condition ID 列表 | 使用 [`battle_condition_def`](../config/battle_condition_def.md) 筛选 Trigger 携带的数值 |
+| `targetId` | Target ID | 使用 [Target](../config/battle_target_def.md) 和本次 Trigger 携带的信息生成 Skill 目标 |
 | `moveSrc` | Area ID | `trigger=111` 时，筛选 Card 移动前所在的 [Area](areas.md) |
 | `moveTarget` | Area ID | `trigger=111` 时，筛选 Card 移动后进入的 [Area](areas.md) |
-| `condition` | Battle Condition ID 列表 | 使用 [Battle Condition](../config/conditions.md) 筛选 Skill 所在 Card |
+| `condition` | Battle Condition ID 列表 | 使用 [`battle_condition_def`](../config/battle_condition_def.md) 筛选 Skill 所在 Card |
 | `countReset` | `1` | 与 `extend.triggerCount` 配合，每回合重置触发次数 |
 | `roundMod` | 正整数 | 每隔指定数量的己方回合允许触发一次 |
 | `roundModStart` | 正整数 | 与 `roundMod` 配合，指定周期中的首次触发位置 |

@@ -184,7 +184,7 @@ return {
 | `type` | int | 完整行动 row 的类型字段 | 当前行动选择路径没有可确认的枚举语义；新内容保持示例值 `1` |
 | `poolId` | int | 行动池分组 ID | 每个 row 都必须等于批次 `installValue` |
 | `weight` | int | 通过 Condition 后的相对选择权重 | 使用正整数；同一 pool 内比较 |
-| `useConditions` | list<int> | 使用该行动必须满足的 Battle Condition | 空表表示没有额外条件；见 [Battle Condition 配置参考](conditions.md#battle-condition) |
+| `useConditions` | list<int> | 使用该行动必须满足的 Battle Condition | 空表表示没有额外条件；见 [`battle_condition_def` 配置参考](battle_condition_def.md) |
 | `cardId` | int | Enemy 最终执行的 Card | 复用同版本已有 Card，并在战斗中验证自动选目标和结算 |
 | `assetId` | string | 行动链界面使用的已有图标引用 | 复用已确认值；新字符串不会创建资源 |
 | `extend` | lua | 行动链界面的附加表现参数 | 普通行动使用 `{}`；当前确认字段见下方 |
@@ -305,7 +305,7 @@ config poolId=990202
 ## 高级现有行为
 
 - `act_node_def.battleExtend.chainId` 可以在 Act 战斗中覆盖 Enemy 的 `robot_def.chainId`。普通 Enemy 不需要使用。
-- Effect `event=108`（`AIChainRemove`）会从当前已经准备好的 Chain 行动头部移除指定数量，不会修改 `chainId`、sequence 或 action pool 配置。见 [Effect 配置参考](effects.md#event-108)。
+- Effect `event=108`（`AIChainRemove`）会从当前已经准备好的 Chain 行动头部移除指定数量，不会修改 `chainId`、sequence 或 action pool 配置。见 [Effect 配置参考](battle_effect_def.md#event-108)。
 
 这些行为用于理解已有 Core 配置，不是首个 Chain MOD 的起始模板。
 

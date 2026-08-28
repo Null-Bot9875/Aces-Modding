@@ -4,7 +4,7 @@ return {
         {
             cardId = 910001,
             name = "Example: Overcharged Shot",
-            rare = 1,
+            rare = 3,
             type = { 2 },
             tagMap = { [3] = 1, [31] = 1 },
             targetIds = { 40 },

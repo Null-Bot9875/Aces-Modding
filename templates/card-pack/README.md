@@ -84,8 +84,8 @@ local CARD_POOL_ENTRY_COPIES = 10
 
 详细字段说明见：
 
-- [Card 配置参考](../../docs/zh-cn/config/card.md)
-- [Skill 配置参考](../../docs/zh-cn/config/skill_def.md)
+- [`card_def` 配置参考](../../docs/zh-cn/config/card_def.md)
+- [Skill 配置参考](../../docs/zh-cn/config/battle_skill_def.md)
 - [Effect 配置参考](../../docs/zh-cn/config/battle_effect_def.md)
 
 配置文件能够加载后，仍需完成一次真实游戏测试。请分别确认奖励展示、存档、目标选择、伤害结算和停用恢复。

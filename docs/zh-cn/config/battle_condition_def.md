@@ -56,7 +56,7 @@ Condition `2310` 的完整配置是：
 
 | 配置表 | 引用字段 |
 | --- | --- |
-| [`card_def`](card.md) | `useConditions` |
+| [`card_def`](card_def.md) | `useConditions` |
 | [`robot_chain_def`](chains.md) | `actions[].useConditions` |
 | [`battle_target_def`](battle_target_def.md) | `conditionList` |
 | [`static_skill_def`](static_skill_def.md) | `conditionListSelf`、`conditionList` |

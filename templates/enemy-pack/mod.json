@@ -6,5 +6,5 @@
   "supportedGameVersions": [
     "1.0"
   ],
-  "description": "定义一个 Enemy 及其两回合循环行动链。"
+  "description": "新增一个可进入的战斗节点，以及使用两回合循环行动链的 Enemy。"
 }

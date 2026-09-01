@@ -11,7 +11,7 @@
 
 - [`card-pack`](../../templates/card-pack/README.md)：一张自定义战术 Card，以及对应 Skill、Effect 和卡池成员。
 - [`node-pack`](../../templates/node-pack/README.md)：一个可选择星核、Card 或 Chip 的三选一事件节点。
-- [`enemy-pack`](../../templates/enemy-pack/README.md)：一个 Enemy 与两回合循环行动链，不自动加入地图。
+- [`enemy-pack`](../../templates/enemy-pack/README.md)：一个可进入的战斗节点，以及使用两回合循环行动链的 Enemy。
 
 ## 战斗配置
 

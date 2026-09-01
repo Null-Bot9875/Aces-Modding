@@ -1,21 +1,17 @@
 # enemy-pack 模板
 
-这是一个只定义 Enemy 与行动链的完整配置包。Enemy `11999` 使用 Chain `1999`，在修复和点射之间循环。
+这是一个可以直接遇到并进入战斗的 Enemy 模板。它向第一层战斗节点池追加节点 `990101`，节点中的 Enemy `11999` 使用 Chain `1999`，在修复和点射之间循环。
 
 ```text
-Enemy 11999：MOD 修复点射核心
-└─ Chain 1999
-   ├─ 第 1、3、5……回合 → 行动池 990201 → Card 21007：自我修复
-   └─ 第 2、4、6……回合 → 行动池 990202 → Card 21006：试探点射
+节点池 1401
+└─ 节点 990101：MOD 行动链演示
+   └─ Enemy 11999：MOD 修复点射核心
+      └─ Chain 1999
+         ├─ 第 1、3、5……回合 → 行动池 990201 → Card 21007：自我修复
+         └─ 第 2、4、6……回合 → 行动池 990202 → Card 21006：试探点射
 ```
 
-这个模板不会自动把 Enemy 放进地图。要实际挑战它，需要让一个战斗节点使用：
-
-```lua
-robot = 11999,
-```
-
-节点与选项的配置见 [`act_node_def`](../../docs/zh-cn/config/act_node_def.md#战斗节点)；一个可以直接安装的事件节点见 [`node-pack`](../node-pack/README.md)。
+节点 `990101` 使用较高权重，方便安装后快速遇到。正式制作自己的 MOD 时，应按玩法平衡降低权重。
 
 ## 目录结构
 
@@ -24,6 +20,8 @@ enemy-pack/
 ├─ mod.json
 ├─ main.lua
 └─ config/
+   ├─ act_node_def/config/node.lua
+   ├─ act_node_refresh_def/config/reachable_node.lua
    ├─ robot_def/config/enemy.lua
    └─ robot_chain_def/
       ├─ sequence/two_round_cycle.lua
@@ -32,7 +30,15 @@ enemy-pack/
          └─ round_2_attack.lua
 ```
 
-## 两张表如何连接
+## 配置如何连接
+
+`act_node_refresh_def` 把节点加入第一层战斗节点池；`act_node_def.robot` 指向 Enemy：
+
+```text
+节点池 1401
+└─ 节点 990101
+   └─ robot 11999
+```
 
 `robot_def.config.chainId` 指向行动链：
 
@@ -55,18 +61,29 @@ chainId 1999
 1. 退出游戏。
 2. 将整个目录复制到游戏可执行文件同级的 `Mods/aces.example.enemypack/`。
 3. 在 MOD 管理器中启用“两回合行动链 Enemy 模板”并应用选择。
-4. 冷启动游戏。
+4. 冷启动游戏，新建 EP `1061` 战局。
+5. 在第一层战斗节点中进入“MOD 行动链演示”。
 
-单独安装只会注册 Enemy 和行动链，不会改变现有地图。把 `robot = 11999` 写入自己的战斗节点后，进入该节点即可观察两回合循环。
+节点权重 `1000000` 只用于缩短模板测试时间。它仍然参与随机抽取，但会明显压过节点池中的普通权重；正式内容不要直接沿用这个数值。
+
+进入战斗后，Enemy 第 1、3、5……回合使用 Card `21007`，第 2、4、6……回合使用 Card `21006`。
 
 ## 复制后修改
 
 用于自己的 MOD 前，至少修改并同步以下 ID：
 
 - MOD ID `aces.example.enemypack`。
+- 节点 ID `990101`。
 - Enemy ID `11999`。
 - Chain ID `1999`。
 - 行动池 ID `990201`、`990202`。
 - 行动项 ID `990301`、`990302`。
+- 节点池 `1401` 与 `weight`，决定节点出现的位置和相对概率。
 
-可以先保留 Card `21007`、`21006` 验证引用链，再逐个换成适合 Enemy 自动使用的 Card。行动链字段见 [`robot_chain_def` 配置参考](../../docs/zh-cn/config/robot_chain_def.md)。
+模板还使用了游戏已有的机体 `7366`、开始战斗选项 `10051`、战斗奖励 `100001` 和 Card `21007`、`21006`。可以先保留这些引用确认整条链路，再逐个换成自己的内容。
+
+详细说明见：
+
+- [`act_node_def` 配置参考](../../docs/zh-cn/config/act_node_def.md)
+- [`act_node_refresh_def` 配置参考](../../docs/zh-cn/config/act_node_refresh_def.md)
+- [`robot_chain_def` 配置参考](../../docs/zh-cn/config/robot_chain_def.md)

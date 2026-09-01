@@ -7,7 +7,7 @@
 ## 从哪里开始
 
 - [`templates/card-pack`](templates/card-pack/README.md)：Card MOD 模板。
-- [`templates/enemy-pack`](templates/enemy-pack/README.md)：Enemy 与两回合行动链模板。
+- [`templates/enemy-pack`](templates/enemy-pack/README.md)：可进入的战斗节点，以及使用两回合行动链的 Enemy 模板。
 - [`templates/node-pack`](templates/node-pack/README.md)：三选一事件节点模板。
 - [`docs/zh-cn/config`](docs/zh-cn/config/)：制作 MOD 时可以直接参考的配置文件说明。
 - [`docs/zh-cn/concepts`](docs/zh-cn/concepts/)：配置文件涉及的概念说明，例如 Trigger、Area 和 Attr。

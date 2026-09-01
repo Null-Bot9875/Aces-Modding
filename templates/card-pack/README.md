@@ -89,7 +89,7 @@ local CARD_POOL_ENTRY_COPIES = 10
 - 默认图片能够正常显示；如果替换 `assetId`，同时检查新资源在目标版本中存在。
 - 停用 MOD、冷启动并新建战役后，示例 Card 不再出现。
 
-配置安装成功不代表 Target、Skill、Effect 和图片已经完成实际结算或显示检查。完整的三层验证规则见[开始制作 MOD](../../docs/zh-cn/getting-started.md#安装和验证)。
+安装后仍要实际打出 Card，确认目标选择、结算和图片正常。通用检查步骤见[开始制作 MOD](../../docs/zh-cn/getting-started.md#安装和验证)。
 
 详细字段说明见：
 

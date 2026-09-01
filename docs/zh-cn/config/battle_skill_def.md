@@ -344,7 +344,7 @@ return {
 }
 ```
 
-`installKey = "skillId"` 表示按 Skill ID 安装这些 row。Effect `8022` 是游戏已有的抽 1 张 Card 结算。
+`installKey = "skillId"` 表示按 Skill ID 安装这些配置。Effect `8022` 是游戏已有的抽 1 张 Card 结算。
 
 同一个 MOD 中的 Card `9908` 通过 `skillList` 引用新 Skill：
 

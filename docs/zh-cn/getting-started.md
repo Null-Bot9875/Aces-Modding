@@ -6,7 +6,7 @@
 - [`node-pack`](../../templates/node-pack/README.md)：新增一个三选一事件节点。
 - [`enemy-pack`](../../templates/enemy-pack/README.md)：新增一个可进入的战斗节点，以及使用行动链的 Enemy。
 
-## 最小目录结构
+## 目录结构
 
 游戏只扫描 `Mods/` 下的直属子目录。一个 MOD 至少需要 `mod.json` 和 `main.lua`；配置 Lua 必须放在固定路径中：
 
@@ -28,7 +28,9 @@
 config/card_def/config/cards.lua
 ```
 
-配置路径必须完整使用 `config/<配置表名>/<Sheet 名>/<文件>.lua`。游戏会自动读取这些文件，不需要在 `main.lua` 中逐个 `require`。
+配置路径必须完整使用 `config/<配置表名>/<Sheet 名>/<文件>.lua`。
+
+游戏会自动读取这些文件，不需要在 `main.lua` 中逐个 `require`。
 
 所有 Lua 文件使用 UTF-8 without BOM。
 
@@ -49,8 +51,8 @@ config/card_def/config/cards.lua
 
 - `id` 使用小写字母、数字和点，例如 `author.example`。
 - 不同 MOD 不能使用相同的 `id`。
-- `supportedGameVersions` 使用 `major.minor` 格式。当前模板填写 `1.0`。
-- MOD 目录名建议与 `id` 相同，方便安装和排查；实际运行身份以 `mod.json.id` 为准。
+- `supportedGameVersions` 填写游戏版本的前两段数字。例如游戏版本是 `1.0.8`，这里填写 `1.0`。
+- MOD 目录名可以自定义，但建议直接与 `id` 相同，例如 `Mods/author.example/`。
 
 ## `main.lua`
 
@@ -70,7 +72,7 @@ return Main
 
 ## 配置文件
 
-每个配置 Lua 返回一个安装批次：
+每个配置 Lua 返回一组要安装的配置：
 
 ```lua
 return {
@@ -84,10 +86,9 @@ return {
 }
 ```
 
-不同配置表使用不同的 `installKey`。节点池、Card 池和行动池等分组配置还会使用 `installValue` 与 `operation`。不要把某张表的批次结构直接套到另一张表；从对应的[配置参考](config/)或模板复制完整写法。
+不同配置表使用不同的 `installKey`。节点池、Card 池和行动池等分组配置还会使用 `installValue` 与 `operation`。不要把某张表的配置写法直接套到另一张表；从对应的[配置参考](config/)或模板复制完整写法。
 
-没有自动缺省适配的配置表，必须填写 Schema 要求的完整字段。仓库中的模板和配置参考已经按各表当前要求提供完整 row。
-
+部分配置表不会自动补上省略的字段。新增配置时，从对应配置参考或模板复制完整结构，再修改需要的内容。
 ## 修改模板的顺序
 
 1. 复制整个模板目录。
@@ -100,7 +101,7 @@ return {
 
 可以使用以下参考包查询当前版本已有内容：
 
-- [`game-config`](../../game-config/README.md)：查询现有配置 ID、row 和引用关系。
+- [`game-config`](../../game-config/README.md)：查询现有配置 ID、内容和引用关系。
 - [`game-lua`](../../game-lua/README.md)：查询当前版本 Lua 的读取与结算逻辑。
 
 ## 安装和验证
@@ -115,8 +116,8 @@ return {
 
 检查分为三层：
 
-1. **安装成功**：MOD 管理器没有阻塞问题，冷启动时没有配置安装错误。
+1. **安装成功**：MOD 管理器可以正常启用，冷启动时没有配置错误。
 2. **实际生效**：进入对应奖励、节点或战斗，确认引用链和游戏结果正确。
 3. **停用恢复**：停用 MOD、冷启动并新建战局后，MOD 新增内容不再出现，游戏已有内容仍能正常使用。
 
-安装成功只证明目录、Lua 和配置字段可以被读取。Card、Reward、Enemy、资源 ID 等引用不会在安装时全部递归检查，仍要通过实际生效步骤确认。
+安装成功不代表所有引用都有效。仍要进入游戏，确认 Card、Reward、Enemy 和资源能够正常使用。

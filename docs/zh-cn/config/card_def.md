@@ -170,7 +170,7 @@ extend = {
 | `iconId` | int | `0` | Card 的额外图标 ID |
 | `keywordList` | table[] | `{}` | Card 详情要展示的关键词；每项使用 `keywordId`，需要时补 `isSelf=1` |
 
-`type` 只决定颜色。判断一条 row 是战术卡、无人机卡还是机师卡时，主要看 `tagMap`，不能用颜色代替类型判断。
+`type` 只决定颜色。判断一张 Card 是战术卡、无人机卡还是机师卡时，主要看 `tagMap`，不能用颜色代替类型判断。
 
 `tagMap` 是运行时分类数据，`tag`、`mainTag` 和 `subTag` 是文本标签。它们用途不同，不要因为显示文字相同就只填其中一组。
 
@@ -199,7 +199,7 @@ extend = {
 }
 ```
 
-`upgrade=2062` 表示这张 Card 的升级目标是 Card `2062`。Rogue 升级等流程会用这组关系找到升级后的 Card；升级目标必须另外提供一条完整 `card_def` row。
+`upgrade=2062` 表示这张 Card 的升级目标是 Card `2062`。Rogue 升级等流程会用这组关系找到升级后的 Card；升级目标必须另外提供一条完整 `card_def` 配置。
 
 `extend.linkCards={2097}` 让 Card 详情把 `连续射击β` 作为关联 Card 展示。它不负责创建 Card；真正创建 `2097` 的是 Skill `206101` 引用的 Effect `1534`。
 
@@ -251,7 +251,7 @@ Card 2023：运输无人机（派出时抽 1 张 Card；2 点 HP；基础攻击�
 #### `attkSkill`：常用基础攻击 Skill
 
 `attkSkill` 填写 [`battle_skill_def.skillId`](battle_skill_def.md)。
-内部有设置提供一组固定伤害 Skill，可直接用于普通无人机的基础攻击：
+游戏已有一组固定伤害 Skill，可直接用于普通无人机的基础攻击：
 
 | `attkSkill` | 基础攻击结果 |
 | --- | --- |
@@ -261,9 +261,9 @@ Card 2023：运输无人机（派出时抽 1 张 Card；2 点 HP；基础攻击�
 
 例如，`attkSkill=501` 使用 Skill `501`，基础攻击造成 1 点伤害；`attkSkill=505` 则造成 5 点伤害。
 
-这些数字是现有 Skill 的编号约定，运行时仍会执行对应 Skill 引用的 Effect。不要据此填写并不存在的 `512`～`514`。需要其他数值或特殊攻击行为时，应新增 [`battle_skill_def`](battle_skill_def.md) row，再把新 `skillId` 填到 `attkSkill`。
+这些数字是现有 Skill 的编号约定，实际攻击仍会执行对应 Skill 引用的 Effect。不要据此填写并不存在的 `512`～`514`。需要其他数值或特殊攻击行为时，应新增 [`battle_skill_def`](battle_skill_def.md) 配置，再把新 `skillId` 填到 `attkSkill`。
 
-`extend.modelId` 是创建无人机模型的必需数据。填写不存在的模型 ID 时，Card row 可能可以安装，但无人机创建、预加载或显示会失败。
+`extend.modelId` 是创建无人机模型的必需数据。填写不存在的模型 ID 时，Card 配置可能可以安装，但无人机创建、预加载或显示会失败。
 
 ### 组合案例：`连击无人机`
 
@@ -480,7 +480,7 @@ return {
 }
 ```
 
-省略的字段会获得作者适配器默认值。例如 `useConditions={0}`、`staticList={}`、`extraCost={}`、`hp=0`、`assetId=10001`、`mainType=1` 和 `extend={}`。
+省略的字段会自动使用默认值。例如 `useConditions={0}`、`staticList={}`、`extraCost={}`、`hp=0`、`assetId=10001`、`mainType=1` 和 `extend={}`。
 
 新增 `cardId` 后，其他配置可以通过该 ID 引用它：
 

@@ -149,7 +149,7 @@ args = {},
 
 检查调用位置传入的目标 Card 是否符合 `args` 筛选。名称虽然是 `HandCard`，但运行时不会检查 Card 是否位于手牌；引用位置必须提供有效的运行时 Card UID。
 
-`target` 不会代替运行时 Card UID。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用现有配置中的 `0` 和 `-1`。
+`target` 不会代替实际战斗中的 Card UID。该类型不读取 `minValue` 和 `maxValue`；完整配置仍需填写，示例沿用现有配置中的 `0` 和 `-1`。
 
 当前公开的 Card 筛选参数如下：
 
@@ -227,7 +227,7 @@ args = {
 
 检查调用位置传入的 Stack。该类型需要有效的 Stack ID；运行时 Card UID 不能代替 Stack ID。
 
-`target=1` 用于己方 Stack。当前公开案例只使用 `target=1`。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用现有配置中的 `0` 和 `1`。
+`target=1` 用于己方 Stack。当前公开案例只使用 `target=1`。该类型不读取 `minValue` 和 `maxValue`；完整配置仍需填写，示例沿用现有配置中的 `0` 和 `1`。
 
 `args.stack` 是允许的 Stack 类型列表：
 

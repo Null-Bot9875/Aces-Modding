@@ -54,4 +54,5 @@
 
 - [`robot_chain_def` 配置参考](config/robot_chain_def.md)
 
-Enemy 本体的完整 row 可以从 [`enemy-pack`](../../templates/enemy-pack/README.md) 复制；`robot_chain_def` 说明 Enemy 每回合如何从行动池中选择 Card。
+Enemy 本体的完整案例可以从 [`enemy-pack`](../../templates/enemy-pack/README.md) 复制；
+`robot_chain_def` 说明 Enemy 每回合如何从行动池中选择 Card。

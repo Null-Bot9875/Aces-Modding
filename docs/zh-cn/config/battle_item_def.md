@@ -33,7 +33,7 @@ Battle Item 3001：转运服务
    └─ effect → Effect 3001：抽 3 张 Card
 ```
 
-当前新增一条 `battle_item_def` row 时，需要列出下面这些字段：
+当前新增一条 `battle_item_def` 配置时，需要列出下面这些字段：
 
 | 字段 | 类型 | 作用 |
 | --- | --- | --- |

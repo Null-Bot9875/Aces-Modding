@@ -646,7 +646,7 @@ Condition 的字段与可用规则见 [`battle_condition_def` 配置参考](batt
 config/battle_target_def/config/targets.lua
 ```
 
-文件通过 `installKey="id"` 指定安装键，并在 `rows` 中填写完整 row。例如新增 Target `900001`，从敌方战场机体中选择 1 个对象：
+文件通过 `installKey="id"` 指定安装键，并在 `rows` 中填写完整配置。例如新增 Target `900001`，从敌方战场机体中选择 1 个对象：
 
 ```lua
 return {

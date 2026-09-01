@@ -96,15 +96,15 @@ return {
 
 | 字段 | 类型 | 含义 | 配置规则 |
 | --- | --- | --- | --- |
-| `chainId` | int | 行动链分组 ID | 每个 row 都必须等于批次 `installValue` |
+| `chainId` | int | 行动链分组 ID | 每条配置都必须等于文件中的 `installValue` |
 | `seqType` | int | 回合匹配方式 | 可用值是 `1` 和 `2` |
 | `round` | int | 指定回合，或循环中的位置 | 与 `seqType`、`circle` 一起解释 |
 | `circle` | int | 循环长度 | `seqType=2` 时必须使用正整数 |
 | `poolId` | int | 匹配该回合后读取的行动池 | 引用 `robot_chain_def.config.poolId` |
 
-`sequence` row 没有 `id`。不要从旧配置、旧导出或其他 sheet 复制辅助 `id` 字段。
+`sequence` 中的配置没有 `id`。不要从旧配置、旧导出或其他 Sheet 复制辅助 `id` 字段。
 
-`rows` 是有序列表。一个逻辑回合可以匹配多行，并按这些行依次准备多个行动池；不要把 rows 改成以 `round` 或 `poolId` 为键的 map，也不要依赖安装器自动排序。
+`rows` 是有序列表。一个逻辑回合可以匹配多条配置，并按顺序准备多个行动池；不要把 `rows` 改成以 `round` 或 `poolId` 为键的 table，也不要依赖游戏自动排序。
 
 ### 循环回合：`seqType=2`
 
@@ -114,7 +114,7 @@ return {
 循环位置 = ((Enemy 行动回合 - 1) % circle) + 1
 ```
 
-当循环位置等于 row 的 `round` 时，该 row 生效。
+当循环位置等于某条配置的 `round` 时，这条配置生效。
 
 例如 `circle=2`：
 
@@ -141,9 +141,9 @@ return {
 }
 ```
 
-没有匹配 row 的回合不会从这条 Chain 得到行动池。现有配置同时存在 `seqType=1` 与 `2`；复制时应沿用所参考行动链的取值。
+没有匹配配置的回合不会从这条 Chain 得到行动池。现有配置同时存在 `seqType=1` 与 `2`；复制时应沿用所参考行动链的取值。
 
-不要在同一个 `chainId` 中混写 `seqType=1` 与 `2`。当前运行时会使用本次刷新中先匹配到的类型，并跳过另一种类型；结果会依赖 row 顺序。
+不要在同一个 `chainId` 中混写 `seqType=1` 与 `2`。游戏会使用本次刷新中先匹配到的类型，并跳过另一种类型；结果会依赖配置顺序。
 
 ## 行动池：`robot_chain_def.config`
 
@@ -179,8 +179,8 @@ return {
 | 字段 | 类型 | 含义 | 配置规则 |
 | --- | --- | --- | --- |
 | `id` | int | 行动项唯一 ID | 必须在整张 `robot_chain_def.config` 表中唯一，不只是 pool 内唯一 |
-| `type` | int | 完整行动 row 的类型字段 | 新内容保持示例值 `1` |
-| `poolId` | int | 行动池分组 ID | 每个 row 都必须等于批次 `installValue` |
+| `type` | int | 行动配置的类型字段 | 新内容保持示例值 `1` |
+| `poolId` | int | 行动池分组 ID | 每条配置都必须等于文件中的 `installValue` |
 | `weight` | int | 通过 Condition 后的相对选择权重 | 使用正整数；同一 pool 内比较 |
 | `useConditions` | list<int> | 使用该行动必须满足的 Battle Condition | 空表表示没有额外条件；见 [`battle_condition_def` 配置参考](battle_condition_def.md) |
 | `cardId` | int | Enemy 最终执行的 Card | 复用同版本已有 Card，并在战斗中验证自动选目标和结算 |
@@ -196,11 +196,11 @@ return {
 每个匹配到的 `poolId` 按以下顺序选择至多一条行动：
 
 ```text
-读取 pool 的全部 rows
-  -> 删除不满足 useConditions 的 rows
-  -> 对剩余 rows 按 weight 做加权随机
-  -> 保存被选中 row 的 id
-  -> 执行该 row 的 cardId
+读取行动池的全部配置
+  -> 删除不满足 useConditions 的配置
+  -> 对剩余配置按 weight 做加权随机
+  -> 保存被选中配置的 id
+  -> 执行这条配置的 cardId
 ```
 
 例如同一 pool 有两条都满足 Condition 的候选：
@@ -274,7 +274,7 @@ extend = {
 1. `robot_def.config.chainId` 指向新的 Chain；
 2. 一个 `sequence` 文件定义完整 `chainId` 组；
 3. 每个新 `poolId` 各有一个独立 `config` 文件；
-4. 每条行动 row 使用全表唯一 `id`，并引用已有 `cardId`。
+4. 每条行动配置使用全表唯一 `id`，并引用已有 `cardId`。
 
 ```text
 robot_def.chainId = 1999

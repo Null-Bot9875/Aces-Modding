@@ -5,7 +5,9 @@
 - [`config/`](config/)：MOD 作者可以直接参考的配置文件说明。每篇文档对应一张真实配置表。
 - [`concepts/`](concepts/)：解释配置文件涉及的概念，例如 Trigger、Area、Attr 和节点系统。
 
-制作 MOD 时，先从模板或目标配置表开始；遇到 Trigger、战斗区域、回合阶段和节点池等概念时，再查看对应概念说明。
+## 开始
+
+- [开始制作 MOD](getting-started.md)：最小目录结构、`mod.json`、配置路径、安装步骤和完成检查。
 
 ## 模板
 

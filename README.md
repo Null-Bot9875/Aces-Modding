@@ -6,6 +6,7 @@
 
 ## 从哪里开始
 
+- [开始制作 MOD](docs/zh-cn/getting-started.md)：目录结构、配置路径、安装流程和完成检查。
 - [`templates/card-pack`](templates/card-pack/README.md)：Card MOD 模板。
 - [`templates/enemy-pack`](templates/enemy-pack/README.md)：可进入的战斗节点，以及使用两回合行动链的 Enemy 模板。
 - [`templates/node-pack`](templates/node-pack/README.md)：三选一事件节点模板。

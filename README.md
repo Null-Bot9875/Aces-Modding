@@ -1,6 +1,6 @@
 # Aces Modding
 
-> TODO：中文文档结构和内容稳定后，再补充英文版本。
+[English documentation](README.en.md)
 
 本仓库提供《ACE Strategy: Mecha Nova》（NOVA）的 MOD 模板、配置参考和相关概念说明。
 

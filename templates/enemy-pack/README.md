@@ -21,6 +21,7 @@
 enemy-pack/
 ├─ mod.json
 ├─ main.lua
+├─ locales/en_us/mod.json
 └─ config/
    ├─ act_node_def/config/node.lua
    ├─ act_node_refresh_def/config/reachable_node.lua

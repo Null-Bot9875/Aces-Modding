@@ -18,6 +18,7 @@ Card 910001：示例：过载射击
 card-pack/
   mod.json
   main.lua
+  locales/en_us/mod.json
   config/
     card_def/config/cards.lua
     battle_skill_def/config/skills.lua

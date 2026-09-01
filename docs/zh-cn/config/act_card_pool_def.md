@@ -48,6 +48,22 @@
 
 按照 Card 的 `rare` 选择相同档位的 `poolId`。例如 `rare=3` 的 Card 加入 `10003`，`rare=4` 的 Card 加入 `10004`。
 
+Reward 通过以下结构使用卡池：
+
+```lua
+value = {
+    {
+        card = {
+            count = 3,
+            choose = 1,
+            pool = { 10003 },
+        },
+    },
+}
+```
+
+这会从池 `10003` 生成 3 张 Card，让玩家选择 1 张。完整写法见 [`reward_def` 配置参考](reward_def.md#card从卡池选择-card)。
+
 ## 在 MOD 中新增 `act_card_pool_def`
 
 Card 池成员文件放在：

@@ -72,7 +72,7 @@ Card 2061：连续射击α（造成 2 点伤害，并创造 1 张连续射击β�
 | `costEffect` | int | 基础费用使用的 Effect；见 [`battle_effect_def` 配置参考](battle_effect_def.md) |
 | `skillList` | int[] | Card 使用或进入战场后携带的 Skill 列表；见 [`battle_skill_def` 配置参考](battle_skill_def.md) |
 
-这 8 个字段缺失或类型错误时，Card 批次不能安装。安装过程不会主动确认 `targetIds`、`costEffect`、`skillList` 或 `tagMap` 中的每个 ID 都存在；引用错误通常会在 Card 被显示、使用或结算时才暴露。
+这 8 个字段缺失或类型错误时，Card 批次不能安装。
 
 ## Card 如何被使用并完成结算
 
@@ -158,8 +158,8 @@ extend = {
 | 字段 | 类型 | 默认值 | 作用 |
 | --- | --- | --- | --- |
 | `name` | string | 必填 | Card 名称 |
-| `descLua` | lua | `{}` | Card 说明片段；Core Card 通常填写语言 key |
-| `assetId` | int 或 string | `10001` | Core Card 图片 ID，或当前 MOD `assets/` 下的相对 PNG 路径 |
+| `descLua` | lua | `{}` | Card 说明片段；游戏已有 Card 通常填写语言 key |
+| `assetId` | int 或 string | `10001` | 游戏已有 Card 图片 ID，或当前 MOD `assets/` 下的相对 PNG 路径 |
 | `rare` | int | 必填 | 稀有度；会影响卡面稀有度显示 |
 | `type` | int[] | 必填 | Card 颜色：`1` 绿、`2` 红、`3` 蓝、`4` 白 |
 | `tagMap` | dict&lt;int, int&gt; | 必填 | 运行时 Tag；例如 `3` 为战术卡、`4` 为无人机卡、`8` 为机师卡 |
@@ -438,14 +438,14 @@ Card 21064：夏洛（搭乘时和每个回合开始时，使搭乘机体受到 
 
 `extend.modelId` 决定无人机 Card 创建和预加载哪个游戏模型。它只能引用客户端已经包含的模型，不能通过一个字符串把新模型导入游戏。
 
-本页案例使用了两个当前 Core Card 已在使用的值：
+本页案例使用了两个游戏已有 Card 正在使用的值：
 
 | `modelId` | 代表 Card | Card 描述 |
 | --- | --- | --- |
 | `drone_ace1_defense_s` | `运输无人机`（Card `2023`） | 派出时抽 1 张牌；2 点 HP；基础攻击造成 1 点伤害 |
 | `drone_ace1_attack_s` | `连击无人机`（Card `2037`） | 连击 1；方向连接生效时获得 +2/+0 |
 
-这张表不是完整模型目录。模型资源会随客户端版本变化，不能把 `card_def.model` 全表或历史 Card 中出现过的字符串直接当成稳定候选。
+按实际渲染效果选择模型时，查看带截图的 [游戏模型目录](../concepts/card-models.md)。模型资源会随客户端版本变化，不要把旧配置中出现过的字符串直接当成稳定候选。
 
 MOD 首版只能复用游戏已经提供、并在目标版本中确认能正常加载的模型。需要新增自定义模型时，不能只修改 `modelId`，还需要独立的资源导入能力。
 
@@ -493,6 +493,3 @@ battle_effect_def 的创建 Card      → 910001
 ```
 
 只安装 `card_def.config` 会让 Card 可以被查询，不会自动把它加入卡池或奖励。要让玩家实际获得它，还需要把 `cardId` 加入对应的 `act_card_pool_def` 或 `reward_def` 配置链。
-
-安装成功只证明 row 结构、必填字段和字段类型通过检查。
-引用的 Target、Effect、Skill、Static Skill、Tag、图片与模型仍要在实际显示和战斗结算中验证。

@@ -72,7 +72,7 @@ Effect 的 `targetId` 负责在结算时指定要读取哪一组目标，因此�
 - `battle_skill_def.config.targetIds`
 - `battle_effect_def.config.targetId`
 
-Card 和 Skill 使用 Target ID 列表；Effect 使用单个 Target ID。它们既可以引用 Core Target，也可以引用同一个 MOD 新增的 Target。
+Card 和 Skill 使用 Target ID 列表；Effect 使用单个 Target ID。它们既可以引用游戏已有的 Target，也可以引用同一个 MOD 新增的 Target。
 
 ## 确定候选对象
 
@@ -170,11 +170,10 @@ Target `114` 组合 `Player` 和战场机体两个区域，选择己方这两个
 
 `flag` 是一组与 `target`、`area` 和具体选择过程共同生效的参数。复制某个 `flag` 时，要同时核对例子中的阵营、区域、Condition 和数量字段。
 
-快速索引：[`self`](#flag-self) · [`selfPlayer`](#flag-selfplayer) · [`hero`](#flag-hero) · [`selfRound`](#flag-selfround) · [`side`](#flag-side)<br>
-[`colNext`](#flag-colnext) · [`sameRow`](#flag-samerow) · [`colTarget`](#flag-coltarget) · [`rowOne`](#flag-rowone) · [`colOne`](#flag-colone)<br>
-[`seq`](#flag-seq) · [`randNum`](#flag-randnum) · [`sort`](#flag-sort) · [`sortType`](#flag-sorttype) · [`attkTarget`](#flag-attktarget)
+快速索引：[`self`](#self) · [`selfPlayer`](#selfplayer) · [`hero`](#hero) · [`selfRound`](#selfround) · [`side`](#side)<br>
+[`colNext`](#colnext) · [`sameRow`](#samerow) · [`colTarget`](#coltarget) · [`rowOne`](#rowone) · [`colOne`](#colone)<br>
+[`seq`](#seq) · [`randNum`](#randnum) · [`sort`](#sort) · [`sortType`](#sorttype) · [`attkTarget`](#attktarget)
 
-<a id="flag-self"></a>
 ### `self`
 
 `self` 判断候选是否为来源自身。
@@ -207,7 +206,6 @@ Target `114` 组合 `Player` 和战场机体两个区域，选择己方这两个
 }
 ```
 
-<a id="flag-selfplayer"></a>
 ### `selfPlayer`
 
 `selfPlayer=1` 选择来源所属阵营的 Player。它通常与 `target=1`、`area={8}` 一起使用。
@@ -226,7 +224,6 @@ Target `100` 选择己方 Player：
 }
 ```
 
-<a id="flag-hero"></a>
 ### `hero`
 
 `hero` 根据机体是否搭乘机师筛选候选。`hero=1` 只保留已搭乘机师的机体。
@@ -245,7 +242,6 @@ Target `1225` 选择己方所有已搭乘机师的机体：
 }
 ```
 
-<a id="flag-selfround"></a>
 ### `selfRound`
 
 `selfRound` 根据机体当前是否处于自身回合筛选候选。`selfRound=1` 只保留当前处于自身回合的机体。
@@ -265,7 +261,6 @@ Target `940` 从双方候选中选择处于自身回合的普通无人机。Cond
 }
 ```
 
-<a id="flag-side"></a>
 ### `side`
 
 `side` 按来源与候选的相邻关系筛选单位。`side=1` 选择与来源横向或纵向相邻的单位。
@@ -284,7 +279,6 @@ Target `123` 选择与来源相邻的己方无人机：
 }
 ```
 
-<a id="flag-colnext"></a>
 ### `colNext`
 
 `colNext` 按来源所在列筛选后方单位。`colNext=1` 选择来源同列后方的单位。
@@ -303,7 +297,6 @@ Target `127` 最多选择一台位于来源后方的己方无人机：
 }
 ```
 
-<a id="flag-samerow"></a>
 ### `sameRow`
 
 `sameRow=1` 只保留与来源处于同一排的候选。
@@ -322,7 +315,6 @@ Target `405` 选择己方与来源同排的全部战场机体：
 }
 ```
 
-<a id="flag-coltarget"></a>
 ### `colTarget`
 
 `colTarget` 按来源所在列筛选对方单位。`colTarget=1` 选择对方与来源同列的单位。
@@ -341,7 +333,6 @@ Target `113` 选择与来源同列的全部敌方无人机：
 }
 ```
 
-<a id="flag-rowone"></a>
 ### `rowOne`
 
 `rowOne` 约束一次多选结果的排。`rowOne=1` 让一次多选结果来自同一排。
@@ -360,7 +351,6 @@ Target `102` 选择一排敌方无人机，最多选择 3 台：
 }
 ```
 
-<a id="flag-colone"></a>
 ### `colOne`
 
 `colOne` 约束一次多选结果的列。`colOne=1` 让一次多选结果来自同一列。
@@ -379,7 +369,6 @@ Target `503` 选择一列敌方无人机，最多选择 3 台：
 }
 ```
 
-<a id="flag-seq"></a>
 ### `seq`
 
 `seq` 按目标区域的既定顺序取值。`seq=1` 按既定顺序取得目标。
@@ -398,7 +387,6 @@ Target `24` 选择敌方储牌区的首张 Card：
 }
 ```
 
-<a id="flag-randnum"></a>
 ### `randNum`
 
 `randNum` 表示从候选中随机取得的数量。它要与 `minValue`、`maxValue` 一起阅读。
@@ -431,7 +419,6 @@ Target `24` 选择敌方储牌区的首张 Card：
 }
 ```
 
-<a id="flag-sort"></a>
 ### `sort`
 
 `sort` 先按指定属性排列候选，再由数量字段截取结果。
@@ -500,7 +487,6 @@ Target `24` 选择敌方储牌区的首张 Card：
 }
 ```
 
-<a id="flag-sorttype"></a>
 ### `sortType`
 
 `sortType` 是 `sort` 的扩展，不能脱离 `sort` 单独使用。
@@ -541,7 +527,6 @@ Target `24` 选择敌方储牌区的首张 Card：
 }
 ```
 
-<a id="flag-attktarget"></a>
 ### `attkTarget`
 
 `attkTarget` 使用现有攻击选区。不同值代表不同的攻击关系，必须结合来源、阵营和数量字段使用。
@@ -620,7 +605,7 @@ Target `24` 选择敌方储牌区的首张 Card：
 
 `conditionList` 填写 `battle_condition_def.config.id` 列表。Target 先通过 `target`、`area` 和 `flag` 得到候选，再用这些 Condition 继续判断候选是否保留。
 
-`conditionList={0}` 表示不增加 Condition。当前 Core 配置使用 `conditionType=1`：列表中的 Condition 都满足时，候选才会保留。
+`conditionList={0}` 表示不增加 Condition。现有配置使用 `conditionType=1`：列表中的 Condition 都满足时，候选才会保留。
 
 Target `667` 同时使用 Condition `2074` 和 `2016`，从双方战场机体中选择 1 台攻击力小于等于 3 的无人机。→
 
@@ -643,7 +628,7 @@ Condition 的字段与可用规则见 [`battle_condition_def` 配置参考](batt
 
 `minValue` 和 `maxValue` 在候选完成筛选、排序或随机处理后，限制最终返回的对象数量。负数的具体含义要结合选择规则阅读，不要把它脱离完整 Target 单独套用。
 
-| 用法 | Core Target | 关键配置 | 游戏结果 |
+| 用法 | Target | 关键配置 | 游戏结果 |
 | --- | --- | --- | --- |
 | 选择 1 个 | `40` | `minValue=1`、`maxValue=1` | 选择 1 个敌方战场机体 |
 | 固定选择 2 个 | `304` | `sort="minHp"`、`minValue=2`、`maxValue=2` | 选择当前 HP 最低的 2 个敌方战场机体 |

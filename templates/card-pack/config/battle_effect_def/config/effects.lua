@@ -3,7 +3,7 @@ return {
     rows = {
         {
             effectId = 990701,
-            desc = "Deal 4 damage to the selected enemy.",
+            desc = "对所选敌方单位造成4点伤害。",
             targetId = 40,
             event = 1000,
             value = 4,

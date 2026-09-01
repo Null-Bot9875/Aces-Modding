@@ -1,10 +1,10 @@
 {
-  "id": "example.cardpack",
-  "name": "Example Card Pack",
-  "author": "MOD Author",
+  "id": "aces.example.cardpack",
+  "name": "自定义 Card 模板",
+  "author": "Aces Team",
   "version": "0.1.0",
   "supportedGameVersions": [
     "1.0"
   ],
-  "description": "Example Card with a custom Skill and Effect, appended to Core reward pool 10003."
+  "description": "新增一张带自定义 Skill 和 Effect 的战术 Card，并追加到奖励池 10003。"
 }

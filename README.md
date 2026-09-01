@@ -7,8 +7,8 @@
 ## 从哪里开始
 
 - [`templates/card-pack`](templates/card-pack/README.md)：Card MOD 模板。
-- [`templates/enemy-pack`](templates/enemy-pack/README.md)：Enemy MOD 模板。
-- [`templates/node-pack`](templates/node-pack/README.md)：Node 与 Enemy 联合模板。
+- [`templates/enemy-pack`](templates/enemy-pack/README.md)：Enemy 与两回合行动链模板。
+- [`templates/node-pack`](templates/node-pack/README.md)：三选一事件节点模板。
 - [`docs/zh-cn/config`](docs/zh-cn/config/)：制作 MOD 时可以直接参考的配置文件说明。
 - [`docs/zh-cn/concepts`](docs/zh-cn/concepts/)：配置文件涉及的概念说明，例如 Trigger、Area 和 Attr。
 - [`game-lua`](game-lua/README.md)：当前版本游戏 Lua 参考包。
@@ -19,8 +19,8 @@
 ## 当前状态
 
 - 中文是当前唯一维护的文档语言。
-- 文档结构和内容仍在整理，未稳定部分以 TODO 标记。
-- 模板仍需在对应游戏版本中完成人工验证。
+- 中文配置参考和概念说明已覆盖当前公开模板需要的配置链。
+- 模板提供完整可复制结构；实际表现仍需在目标游戏版本中验证。
 - 当前仓库仅提供作者参考资料，不代表 Steam Workshop、热重载或运行中卸载已经可用。
 
 ## 许可

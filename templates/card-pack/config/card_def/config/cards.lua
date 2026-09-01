@@ -3,7 +3,7 @@ return {
     rows = {
         {
             cardId = 910001,
-            name = "Example: Overcharged Shot",
+            name = "示例：过载射击",
             rare = 3,
             type = { 2 },
             tagMap = { [3] = 1, [31] = 1 },

@@ -44,16 +44,16 @@ triggerEx = {},
 
 | 字段 | 填写形式 | 基本作用 | 适用 Trigger |
 | --- | --- | --- | --- |
-| `self` | `0` 或 `1` | 事件来源是否必须是 Skill 所在 Card | [106](#106核心装甲减少)、[107](#107受到-damage)、[109](#109effect-造成伤害)、[111](#111card-移动)、[115](#115使用-card)、[117](#117新增-static-skill)、[120](#120ep-减少)、[123](#123机体派出)、[124](#124攻击破坏机体)、[125](#125机体对核心装甲造成伤害)、[126](#126机体被破坏)、[127](#127机体咆哮)、[128](#128机体移动)、[129](#129机体完成攻击)、[130](#130增加叠层-card)、[131](#131card-获得静态-attr)、[132](#132回路数量增加)、[133](#133回路数量减少)、[135](#135机师进入战斗区域)、[136](#136card-移除静态-attr)、[138](#138有攻击力的机体完成攻击) |
-| `src` | `1`、`2` 或 `3` | 限制事件来源玩家：`1` 为己方，`2` 为敌方，`3` 为双方；省略时只响应己方 | [所有自动 Trigger](#trigger-快速索引) |
+| `self` | `0` 或 `1` | 事件来源是否必须是 Skill 所在 Card | [106](#106核心装甲减少)、[107](#107受到-damage)、[109](#109effect-造成伤害)、[111](#111card-移动)、[115](#115使用-card)、[117](#117新增-static-skill)、[120](#120ep-减少)、[123](#123机体派出)、[124](#124攻击破坏机体)、[125](#125机体对核心装甲造成伤害)、[126](#126机体被破坏)、[127](#127机体战吼)、[128](#128机体移动)、[129](#129机体完成攻击)、[130](#130增加叠层-card)、[131](#131card-获得静态-attr)、[132](#132回路数量增加)、[133](#133回路数量减少)、[135](#135机师进入战斗区域)、[136](#136card-移除静态-attr)、[138](#138有攻击力的机体完成攻击) |
+| `src` | `1`、`2` 或 `3` | 限制事件来源玩家：`1` 为己方，`2` 为敌方，`3` 为双方；省略时只响应己方 | [所有自动 Trigger](#可用-trigger) |
 | `srcTag` | Tag ID 列表 | 事件来源 Card 必须同时具有列表中的全部 Tag | 与 `self` 相同，且本次 Trigger 必须携带来源 Card |
 | `srcCondition` | Battle Condition ID 列表 | 使用 [`battle_condition_def`](../config/battle_condition_def.md) 检查事件来源 Card | 与 `self` 相同，且本次 Trigger 必须携带来源 Card |
 | `condition` | Battle Condition ID 列表 | 使用 [`battle_condition_def`](../config/battle_condition_def.md) 检查 Skill 所在 Card | 自动 Trigger；Skill 必须有所在 Card |
 | `valueCondition` | Battle Condition ID 列表 | 检查 Trigger 携带的数值 | [106](#106核心装甲减少)、[107](#107受到-damage)、[109](#109effect-造成伤害)、[119](#119尝试造成-damage)、[120](#120ep-减少)、[125](#125机体对核心装甲造成伤害) |
 | `moveSrc` | Area ID | 限制 Card 移动前所在的 Area | [111](#111card-移动) |
 | `moveTarget` | Area ID | 限制 Card 移动后进入的 Area | [111](#111card-移动) |
-| `roundMod` | 正整数 | 每隔指定数量的己方回合允许触发一次 | [所有自动 Trigger](#trigger-快速索引) |
-| `roundModStart` | 正整数 | 与 `roundMod` 配合，指定周期中的首次触发位置 | [所有自动 Trigger](#trigger-快速索引) |
+| `roundMod` | 正整数 | 每隔指定数量的己方回合允许触发一次 | [所有自动 Trigger](#可用-trigger) |
+| `roundModStart` | 正整数 | 与 `roundMod` 配合，指定周期中的首次触发位置 | [所有自动 Trigger](#可用-trigger) |
 | `attr` | Attr 名称 | 限制本次增加或移除的 Attr | [131](#131card-获得静态-attr)、[136](#136card-移除静态-attr) |
 | `nodeShowType` | `showType` 列表 | 只在当前 Node 的 `showType` 位于列表中时通过 | 自动 Trigger；案例见 [100](#100战斗开始) |
 | `targetId` | Target ID | 使用 Trigger 携带的信息生成 Skill 目标 | 已确认案例见 [111](#111card-移动)、[123](#123机体派出)、[138](#138有攻击力的机体完成攻击) |
@@ -63,7 +63,7 @@ triggerEx = {},
 
 `countReset` 也不是筛选条件。它只与 `extend.triggerCount` 配合；是否能按回合重置，还取决于 Skill 的实际承载对象。
 
-## Trigger 快速索引
+## 可用 Trigger
 
 表中的“通用”指 `src`、`condition`、`roundMod`、`roundModStart` 和 `nodeShowType`。这些字段不要求 Trigger 携带事件 Card，但 `condition` 仍要求 Skill 有所在 Card。
 
@@ -95,7 +95,7 @@ triggerEx = {},
 | [`124`](#124攻击破坏机体) | `DroneDestory` | 机体通过战斗或 Effect 破坏另一台机体 | 通用、`self`、来源 Card |
 | [`125`](#125机体对核心装甲造成伤害) | `DroneDamage` | 机体对核心装甲造成实际伤害 | 通用、`self`、来源 Card、`valueCondition` |
 | [`126`](#126机体被破坏) | `DroneBeDestory` | 机体被破坏 | 通用、`self`、来源 Card |
-| [`127`](#127机体咆哮) | `DroneRoar` | 机体完成派出后检查自身咆哮 Skill | 通用、`self`、来源 Card |
+| [`127`](#127机体战吼) | `DroneRoar` | 机体完成派出后检查自身战吼 Skill | 通用、`self`、来源 Card |
 | [`128`](#128机体移动) | `DroneMove` | 机体在 Drone 区内完成换位 | 通用、`self`、来源 Card |
 | [`129`](#129机体完成攻击) | `DroneAttk` | 机体完成一次攻击 | 通用、`self`、来源 Card |
 | [`130`](#130增加叠层-card) | `StackcardAdd` | Card 增加一张叠层 Card | 通用、`self`、来源 Card |
@@ -368,7 +368,7 @@ extend = {
 
 ## `127`：机体战吼
 
-`DroneRoar` 在机体通过 Stack 派出并完成放置后，检查这台机体自身的咆哮 Skill。
+`DroneRoar` 在机体通过 Stack 派出并完成放置后，检查这台机体自身的战吼 Skill。
 
 本次 Trigger 携带刚派出的机体 Card。可以使用 `self`、`srcTag`、`srcCondition`、`condition`、`roundMod`、`roundModStart` 和 `nodeShowType`。
 
@@ -466,4 +466,4 @@ Skill 的触发入口位于 [`battle_skill_def.trigger`](../config/battle_skill_
 
 Static Skill 可以通过 [`static_skill_def.flag.removeTrigger.trigger`](../config/static_skill_def.md#按-trigger-自动移除flagremovetrigger) 监听 Trigger，并在 `static_skill_def.flag.removeTrigger.triggerEx` 中使用同一套筛选规则。
 
-`battle_effect_def.extend.trigger` 只用于 `event = 120` 的 Effect。它负责指定要执行的 Trigger Skill，不是另一套 Trigger 定义，具体用法见 [`event = 120`：触发 Skill](../config/battle_effect_def.md#event-120触发-skillskilltrigger)。
+`battle_effect_def.extend.trigger` 只用于 `event = 120` 的 Effect。它负责指定要执行的 Trigger Skill，不是另一套 Trigger 定义，具体用法见 [`event = 120`：触发 Skill](../config/battle_effect_def.md#event-120-skilltrigger)。

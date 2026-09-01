@@ -1,10 +1,10 @@
-# Chain 配置参考
+# `robot_chain_def` 配置参考
 
 > Chain 定义 Enemy 在每个行动回合准备哪些 Card，以及多个候选之间如何按 Condition 和权重选择。
 
-## Chain 的基本结构
+## `robot_chain_def` 的基本结构
 
-`node-pack` 中 Enemy `11999` 使用 Chain `1999`。预期游戏内结果是：第 1、3 个 Enemy 回合使用 Card `21007`（自我修复），第 2、4 个 Enemy 回合使用 Card `21006`（试探点射）。
+[`enemy-pack`](../../../templates/enemy-pack/README.md) 中 Enemy `11999` 使用 Chain `1999`。第 1、3 个 Enemy 回合使用 Card `21007`（自我修复），第 2、4 个 Enemy 回合使用 Card `21006`（试探点射）。
 
 ```text
 Enemy 11999
@@ -22,7 +22,7 @@ Enemy 11999
 行动项：id=990301/990302，唯一标识最终被选中的 Card 行动
 ```
 
-完整可运行文件见 [`node-pack`](../../../templates/node-pack/README.md)。该模板仍需按人工测试清单完成 Unity/Player 验收。
+完整配置文件见 [`enemy-pack`](../../../templates/enemy-pack/README.md)。
 
 ## Chain 在引用链中的位置
 
@@ -39,8 +39,6 @@ Enemy 11999
 
 `robot_def.chainId` 是普通 Enemy 的 Chain 入口。Chain 最终执行的仍然是 Card，因此 Card 的费用、Target、Skill、Effect 和表现都必须适合 Enemy 自动使用。
 
-Act 战斗中的 `act_node_def.battleExtend.chainId` 可以覆盖 `robot_def.chainId`。这是现有 Node 的高级用法；制作普通 Chain Enemy 时直接使用 `robot_def.chainId`。
-
 ## 两种配置分别负责什么
 
 `robot_chain_def` 包含两个独立 sheet，也必须使用两个独立安装组：
@@ -52,14 +50,14 @@ Act 战斗中的 `act_node_def.battleExtend.chainId` 可以覆盖 `robot_def.cha
 
 两者不能合成一个跨 sheet 的“大 Chain 文件”。一个行动池可以被多个 Chain 共用；修改 `sequence` 不等于拥有或覆盖它引用的行动池。
 
-Core 中已经存在多个共享行动池。例如，`poolId=170` 和 `171` 同时被 `chainId=1140` 与 `21000` 引用。Core ID 属于当前游戏版本，不能当作跨版本常量。
+游戏已有配置中存在多个共享行动池。例如，`poolId=170` 和 `171` 同时被 `chainId=1140` 与 `21000` 引用。这些 ID 属于当前游戏版本，不能当作跨版本常量。
 
 示例省略 `operation`，默认执行 `replace`：
 
 - 对新 `chainId` 或新 `poolId`，`replace` 会新增整个组；
 - 对已有组，`replace` 会替换该组的全部 rows；
 - `append` 只在明确需要向已有组追加候选时使用；
-- 制作独立内容时，优先使用新的 Chain 和行动池 ID，避免改变 Core 或其他 MOD 的共享组。
+- 制作独立内容时，优先使用新的 Chain 和行动池 ID，避免改变游戏已有配置或其他 MOD 的共享组。
 
 ## 回合序列：`robot_chain_def.sequence`
 
@@ -99,7 +97,7 @@ return {
 | 字段 | 类型 | 含义 | 配置规则 |
 | --- | --- | --- | --- |
 | `chainId` | int | 行动链分组 ID | 每个 row 都必须等于批次 `installValue` |
-| `seqType` | int | 回合匹配方式 | 当前公开并确认的值是 `1` 和 `2` |
+| `seqType` | int | 回合匹配方式 | 可用值是 `1` 和 `2` |
 | `round` | int | 指定回合，或循环中的位置 | 与 `seqType`、`circle` 一起解释 |
 | `circle` | int | 循环长度 | `seqType=2` 时必须使用正整数 |
 | `poolId` | int | 匹配该回合后读取的行动池 | 引用 `robot_chain_def.config.poolId` |
@@ -127,7 +125,7 @@ return {
 | 3 | 1 | `990201` |
 | 4 | 2 | `990202` |
 
-`node-pack` 只把 `seqType=2, circle=2` 作为首个可复制起点。`circle=0` 会让循环计算无效，不要用于 `seqType=2`。
+`enemy-pack` 使用 `seqType=2, circle=2` 作为可复制起点。`circle=0` 会让循环计算无效，不要用于 `seqType=2`。
 
 ### 指定回合：`seqType=1`
 
@@ -143,7 +141,7 @@ return {
 }
 ```
 
-没有匹配 row 的回合不会从这条 Chain 得到行动池。当前 Core 同时存在 `seqType=1` 与 `2`，但 `node-pack` 尚未对 `seqType=1` 做 MOD 作者人工验收。
+没有匹配 row 的回合不会从这条 Chain 得到行动池。现有配置同时存在 `seqType=1` 与 `2`；复制时应沿用所参考行动链的取值。
 
 不要在同一个 `chainId` 中混写 `seqType=1` 与 `2`。当前运行时会使用本次刷新中先匹配到的类型，并跳过另一种类型；结果会依赖 row 顺序。
 
@@ -181,7 +179,7 @@ return {
 | 字段 | 类型 | 含义 | 配置规则 |
 | --- | --- | --- | --- |
 | `id` | int | 行动项唯一 ID | 必须在整张 `robot_chain_def.config` 表中唯一，不只是 pool 内唯一 |
-| `type` | int | 完整行动 row 的类型字段 | 当前行动选择路径没有可确认的枚举语义；新内容保持示例值 `1` |
+| `type` | int | 完整行动 row 的类型字段 | 新内容保持示例值 `1` |
 | `poolId` | int | 行动池分组 ID | 每个 row 都必须等于批次 `installValue` |
 | `weight` | int | 通过 Condition 后的相对选择权重 | 使用正整数；同一 pool 内比较 |
 | `useConditions` | list<int> | 使用该行动必须满足的 Battle Condition | 空表表示没有额外条件；见 [`battle_condition_def` 配置参考](battle_condition_def.md) |
@@ -191,7 +189,7 @@ return {
 
 `id` 会写入战斗中的待执行 Chain，并被战斗逻辑和客户端界面再次查询。重复或不存在的 `id` 不是显示问题，而会破坏行动执行或界面读取。
 
-`type` 在当前行动选择、Card 执行和界面读取路径中没有确认消费者。Core 数据里出现的其他数值不等于已经公开的 MOD 枚举。
+普通行动的 `type` 保持 `1`。不要根据其他数据中的数值推断新的行动类型。
 
 ### Condition 和权重如何选择 Card
 
@@ -249,7 +247,7 @@ rows = {
 | `"buff_1"` | 自我修复行动 |
 | `"attack_1"` | 试探点射行动 |
 
-字符串存在于配置中不等于客户端存在对应资源。当前文档不提供自定义 Chain 图标打包能力。
+字符串存在于配置中不等于客户端存在对应资源。这里复用游戏已有的 Chain 图标。
 
 ### 行动特效：`extend.showChainEffect`
 
@@ -267,9 +265,9 @@ extend = {
 }
 ```
 
-该字段只控制现有界面特效的显示与隐藏，不新增特效资源，也不改变 Card 结算。使用后必须在 Player 中确认实际显示。
+该字段只控制现有界面特效的显示与隐藏，不新增特效资源，也不改变 Card 结算。
 
-## 新增完整两回合 Chain
+## 在 MOD 中新增 `robot_chain_def`
 
 一个新的两回合 Chain 至少涉及四处同步修改：
 
@@ -294,37 +292,10 @@ config poolId=990202
 
 示例 ID 不是保留号段。发布其他 MOD 前，必须更换 Enemy ID、`chainId`、每个 `poolId` 和每个 action `id`，并同步全部引用。
 
-推荐修改顺序：
+复制模板后按下面的顺序修改：
 
-1. 先复制 `node-pack` 的三类 Chain 文件；
+1. 先复制 `enemy-pack` 的三类 Chain 文件；
 2. 更换所有新增 ID，但暂时保留 Card、Condition 和表现值；
 3. 确认两回合循环仍然成立；
 4. 一次只替换一个 `cardId`；
 5. 最后再增加候选、Condition、权重或表现。
-
-## 高级现有行为
-
-- `act_node_def.battleExtend.chainId` 可以在 Act 战斗中覆盖 Enemy 的 `robot_def.chainId`。普通 Enemy 不需要使用。
-- Effect `event=108`（`AIChainRemove`）会从当前已经准备好的 Chain 行动头部移除指定数量，不会修改 `chainId`、sequence 或 action pool 配置。见 [Effect 配置参考](battle_effect_def.md#event-108)。
-
-这些行为用于理解已有 Core 配置，不是首个 Chain MOD 的起始模板。
-
-## 游戏内验证
-
-静态检查可以确认：
-
-- 批次路径、字段类型和安装组合法；
-- `chainId -> poolId -> id -> cardId` 引用按文档闭合；
-- LocalServer 能读取安装后的最终配置；
-- 相同输入下，sequence 与 pool 选择逻辑得到预期配置项。
-
-Unity/Player 人工验证还必须确认：
-
-1. Node 实际进入目标 Enemy 战斗；
-2. 每个 Enemy 回合显示并执行预期 Card；
-3. 多候选 pool 的 Condition 和权重行为符合设计；
-4. Card 自动选择的 Target、Effect 结算和回合推进正常；
-5. `assetId` 与 `showChainEffect` 的界面表现存在且正确；
-6. 停用 MOD 并冷启动后，MOD Chain 不再出现。
-
-成功安装、能按 ID 查询或离线测试通过，都不能代替这些游戏内结果。

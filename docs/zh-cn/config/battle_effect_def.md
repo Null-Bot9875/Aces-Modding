@@ -35,14 +35,12 @@
 
 先根据要实现的行为选择 `event`，再在同一小节确认它需要的 `targetId`、`value` 和 `extend`。
 
-[`11 NewCard`](#event-11)、[`17 CardArea`](#event-17)、[`21 CreateCard`](#event-21)、[`23 CreateDrone`](#event-23)、[`24 CreateItem`](#event-24)、[`25 ReplaceDrone`](#event-25)、[`27 DestroyDrone`](#event-27)<br>
-[`30 Counteract`](#event-30)、[`60 StaticAdd`](#event-60)、[`61 StaticRemove`](#event-61)、[`100 Power`](#event-100)、[`102 PowerMax`](#event-102)、[`103 Hp`](#event-103)、[`105 HpSet`](#event-105)<br>
-[`106 AttkAdd`](#event-106)、[`107 PowerTmp`](#event-107)、[`108 AIChainRemove`](#event-108)、[`109 ActorFinish`](#event-109)、[`110 AttrRemove`](#event-110)、[`112 HpMaxSet`](#event-112)、[`113 AttkSet`](#event-113)<br>
-[`120 SkillTrigger`](#event-120)、[`200 Value`](#event-200)、[`201 Reward`](#event-201)、[`202 Gold`](#event-202)、[`400 Attk`](#event-400)、[`1000 Damage`](#event-1000)、[`1002 DamageBreak`](#event-1002)
+[`11 NewCard`](#event-11-newcard)、[`17 CardArea`](#event-17-cardarea)、[`21 CreateCard`](#event-21-createcard)、[`23 CreateDrone`](#event-23-createdrone)、[`24 CreateItem`](#event-24-createitem)、[`25 ReplaceDrone`](#event-25-replacedrone)、[`27 DestroyDrone`](#event-27-destroydrone)<br>
+[`30 Counteract`](#event-30-counteract)、[`60 StaticAdd`](#event-60-staticadd)、[`61 StaticRemove`](#event-61-staticremove)、[`100 Power`](#event-100-power)、[`102 PowerMax`](#event-102-powermax)、[`103 Hp`](#event-103-hp)、[`105 HpSet`](#event-105-hpset)<br>
+[`106 AttkAdd`](#event-106-attkadd)、[`107 PowerTmp`](#event-107-powertmp)、[`108 AIChainRemove`](#event-108-aichainremove)、[`109 ActorFinish`](#event-109-actorfinish)、[`110 AttrRemove`](#event-110-attrremove)、[`112 HpMaxSet`](#event-112-hpmaxset)、[`113 AttkSet`](#event-113-attkset)<br>
+[`120 SkillTrigger`](#event-120-skilltrigger)、[`200 Value`](#event-200-value)、[`201 Reward`](#event-201-reward)、[`202 Gold`](#event-202-gold)、[`400 Attk`](#event-400-attk)、[`1000 Damage`](#event-1000-damage)、[`1002 DamageBreak`](#event-1002-damagebreak)
 
-<a id="event-11"></a>
-
-### `event = 11`：抽取 Card（`NewCard`）
+### Event 11 NewCard
 
 让目标玩家从抽牌区抽取 Card。
 
@@ -58,9 +56,7 @@ targetId = 100,
 value = 1,
 ```
 
-<a id="event-17"></a>
-
-### `event = 17`：移动 Card（`CardArea`）
+### Event 17 CardArea
 
 把 `targetId` 选中的 Card 移到 `value` 指定的战斗区域。
 
@@ -106,9 +102,7 @@ extend = {
 
 `moveTarget = 1` 使用另一方的目标区域。省略或填写 `0` 时，Card 移到其所属阵营的对应区域。
 
-<a id="event-21"></a>
-
-### `event = 21`：创建 Card（`CreateCard`）
+### Event 21 CreateCard
 
 为目标玩家创建指定 Card。
 
@@ -158,14 +152,12 @@ extend = {
 },
 ```
 
-<a id="event-23"></a>
-
-### `event = 23`：创建无人机（`CreateDrone`）
+### Event 23 CreateDrone
 
 在 `targetId` 选中的空战场格子中创建无人机。
 
 - `targetId`：选择允许创建无人机的空格。
-- `value`：运行时不决定创建数量；Core 配置通常填写 `1`。
+- `value`：运行时不决定创建数量；现有配置通常填写 `1`。
 - `extend.card`：固定创建的无人机 Card ID。
 - `extend.randomCards`：每个目标格分别随机选择一个无人机 Card ID，并覆盖 `card`。
 - `extend.posCard`：按战场位置指定 Card ID，优先级高于 `randomCards` 和 `card`。
@@ -214,9 +206,7 @@ extend = {
 
 目标位置没有 `posCard` 条目时，该位置不会创建无人机，也不会回退到 `randomCards` 或 `card`。
 
-<a id="event-24"></a>
-
-### `event = 24`：创建战斗道具（`CreateItem`）
+### Event 24 CreateItem
 
 为目标玩家创建一个战斗道具。
 
@@ -241,14 +231,12 @@ extend = {
 
 `randomCards` 不能是空表，列表中的每个 ID 都必须是有效的战斗道具 ID。
 
-<a id="event-25"></a>
-
-### `event = 25`：替换无人机（`ReplaceDrone`）
+### Event 25 ReplaceDrone
 
 把目标无人机替换成另一张无人机 Card。
 
 - `targetId`：选择要替换的战场无人机。
-- `value`：运行时不决定替换数量；Core 配置通常填写 `1`。
+- `value`：运行时不决定替换数量；现有配置通常填写 `1`。
 - `extend.card`：所有目标统一替换成的 Card ID。
 - `extend.switch`：按当前 Card ID 映射替换后的 Card ID，并覆盖 `card`。
 - `extend.force`：需要额外占位且格子被占用时，`1` 表示继续替换并移走占位 Card；默认 `0` 表示拒绝替换。
@@ -286,14 +274,12 @@ extend = {
 
 当前 Card ID 不在 `switch` 中时，该目标不会替换，也不会回退到 `card`。
 
-<a id="event-27"></a>
-
-### `event = 27`：破坏无人机（`DestroyDrone`）
+### Event 27 DestroyDrone
 
 破坏 `targetId` 选中的无人机。
 
 - `targetId`：选择要破坏的战场无人机。
-- `value`：运行时不决定破坏数量；Core 配置通常填写 `1`。
+- `value`：运行时不决定破坏数量；现有配置通常填写 `1`。
 - `extend`：不需要额外参数，可以省略。
 
 `破限齐射`（Card `7547`）：破坏一台己方无人机。→
@@ -304,14 +290,12 @@ targetId = 613,
 value = 1,
 ```
 
-<a id="event-30"></a>
-
-### `event = 30`：反制（`Counteract`）
+### Event 30 Counteract
 
 反制 `targetId` 选中的对象。
 
 - `targetId`：选择当前能够被反制的对象。
-- `value`：运行时不参与反制；Core 配置通常填写 `1`。
+- `value`：运行时不参与反制；现有配置通常填写 `1`。
 - `extend`：不需要额外参数，可以省略。
 
 `见招拆招`（Card `10415`）：反制敌方下一张战术牌。→
@@ -322,9 +306,7 @@ targetId = 692,
 value = 1,
 ```
 
-<a id="event-60"></a>
-
-### `event = 60`：添加静态异能（`StaticAdd`）
+### Event 60 StaticAdd
 
 向目标添加 `value` 指定的静态异能。
 
@@ -372,9 +354,7 @@ extend = {
 
 `round = 1` 表示回合更新时倒计时减为 `0` 并移除该静态异能。
 
-<a id="event-61"></a>
-
-### `event = 61`：移除静态异能（`StaticRemove`）
+### Event 61 StaticRemove
 
 从目标移除 `value` 指定的静态异能。
 
@@ -390,9 +370,7 @@ targetId = 100,
 value = 1034051,
 ```
 
-<a id="event-100"></a>
-
-### `event = 100`：改变能量（`Power`）
+### Event 100 Power
 
 增加或减少目标玩家的能量。
 
@@ -408,9 +386,7 @@ targetId = 100,
 value = -1,
 ```
 
-<a id="event-102"></a>
-
-### `event = 102`：改变能量上限（`PowerMax`）
+### Event 102 PowerMax
 
 增加或减少目标玩家的能量上限。
 
@@ -426,9 +402,7 @@ targetId = 100,
 value = -2,
 ```
 
-<a id="event-103"></a>
-
-### `event = 103`：改变 HP（`Hp`）
+### Event 103 Hp
 
 回复或扣减目标 Card 的当前 HP。
 
@@ -444,9 +418,7 @@ targetId = 510,
 value = 5,
 ```
 
-<a id="event-105"></a>
-
-### `event = 105`：设置 HP（`HpSet`）
+### Event 105 HpSet
 
 把目标 Card 的当前 HP 直接设为指定值。
 
@@ -462,9 +434,7 @@ targetId = 103,
 value = 8,
 ```
 
-<a id="event-106"></a>
-
-### `event = 106`：改变攻击（`AttkAdd`）
+### Event 106 AttkAdd
 
 增加或减少目标战场 Card 的当前攻击。
 
@@ -487,9 +457,7 @@ extend = {
 
 这条 Effect 必须排在 Effect `4516` 之后，才能读取它返回的无人机 HP。
 
-<a id="event-107"></a>
-
-### `event = 107`：改变临时能量（`PowerTmp`）
+### Event 107 PowerTmp
 
 增加或减少目标玩家的临时能量。
 
@@ -505,9 +473,7 @@ targetId = 100,
 value = 1,
 ```
 
-<a id="event-108"></a>
-
-### `event = 108`：移除 AI 行动链（`AIChainRemove`）
+### Event 108 AIChainRemove
 
 从目标玩家当前行动链的开头移除行动。
 
@@ -523,14 +489,12 @@ targetId = 101,
 value = 1,
 ```
 
-<a id="event-109"></a>
-
-### `event = 109`：结束当前优先权（`ActorFinish`）
+### Event 109 ActorFinish
 
 自动结束目标 Player 当前的优先权。
 
 - `targetId`：选择当前行动上下文中的 Player。
-- `value`：运行时不参与结算；Core 配置通常填写 `1`。
+- `value`：运行时不参与结算；现有配置通常填写 `1`。
 - `extend`：不需要额外参数，可以省略。
 
 `平等的`（Skill `1600901`）：自动结束当前优先权。→
@@ -543,14 +507,12 @@ value = 1,
 
 这个 `event` 只适用于已经建立当前行动者和优先权的结算上下文。
 
-<a id="event-110"></a>
-
-### `event = 110`：移除 Effect 属性（`AttrRemove`）
+### Event 110 AttrRemove
 
 从目标 Card 移除 `extend.attrTarget` 指定的 Effect 属性。
 
 - `targetId`：选择要移除属性的 Card。
-- `value`：运行时不决定移除哪个属性；Core 配置通常填写 `1`。
+- `value`：运行时不决定移除哪个属性；现有配置通常填写 `1`。
 - `extend.attrTarget`：必填，要移除的属性名。可用名称见 [Effect 属性参考](../concepts/attrs.md)。
 
 Card `10611`：让主将失去 `attkDelay`。→
@@ -564,9 +526,7 @@ extend = {
 },
 ```
 
-<a id="event-112"></a>
-
-### `event = 112`：设置 HP 上限（`HpMaxSet`）
+### Event 112 HpMaxSet
 
 把目标 Card 的 HP 上限直接设为指定值。
 
@@ -582,9 +542,7 @@ targetId = 689,
 value = 1,
 ```
 
-<a id="event-113"></a>
-
-### `event = 113`：设置攻击（`AttkSet`）
+### Event 113 AttkSet
 
 把目标 Card 的当前攻击直接设为指定值。这里是“设为”，不是在原值上增加或减少。
 
@@ -600,14 +558,12 @@ targetId = 683,
 value = 1,
 ```
 
-<a id="event-120"></a>
-
-### `event = 120`：触发 Skill（`SkillTrigger`）
+### Event 120 SkillTrigger
 
 触发目标 Card 上符合条件的 Skill。
 
 - `targetId`：选择包含待触发 Skill 的 Card。
-- `value`：运行时不表示 Skill ID；Core 配置通常填写 `1`。
+- `value`：运行时不表示 Skill ID；现有配置通常填写 `1`。
 - `extend.trigger`：可选的 [Trigger ID](../concepts/triggers.md)。填写后只触发 Trigger 相同的 Skill；省略时触发目标 Card 上的全部 Skill。
 
 `供能再动`（Card `10507`）：让目标僚机再触发一次进场时能力。→
@@ -623,9 +579,7 @@ extend = {
 
 `trigger` 是 Trigger ID，不是 Skill ID。
 
-<a id="event-200"></a>
-
-### `event = 200`：记录计算值（`Value`）
+### Event 200 Value
 
 计算并记录一个数值，供同一次 Skill 中排在后面的 Effect 读取。
 
@@ -649,9 +603,7 @@ extend = {
 
 后续 Effect 可以用 `valueType = "effectValue"` 和当前 `effectId` 读取记录值。
 
-<a id="event-201"></a>
-
-### `event = 201`：记录胜利奖励（`Reward`）
+### Event 201 Reward
 
 为目标玩家记录一条胜利奖励，实际发放发生在战斗结束后的奖励流程。
 
@@ -667,9 +619,7 @@ targetId = 100,
 value = 4007,
 ```
 
-<a id="event-202"></a>
-
-### `event = 202`：改变战斗 Gold（`Gold`）
+### Event 202 Gold
 
 增加或减少目标玩家在当前战斗中的 Gold。
 
@@ -685,9 +635,7 @@ targetId = 100,
 value = 10,
 ```
 
-<a id="event-400"></a>
-
-### `event = 400`：发起攻击（`Attk`）
+### Event 400 Attk
 
 让 `targetId` 选中的战场 Card 发起攻击。
 
@@ -703,9 +651,7 @@ targetId = 104,
 value = 1,
 ```
 
-<a id="event-1000"></a>
-
-### `event = 1000`：造成普通伤害（`Damage`）
+### Event 1000 Damage
 
 对 `targetId` 选中的目标造成普通伤害。
 
@@ -721,9 +667,7 @@ targetId = 40,
 value = 2,
 ```
 
-<a id="event-1002"></a>
-
-### `event = 1002`：造成贯穿伤害（`DamageBreak`）
+### Event 1002 DamageBreak
 
 对 `targetId` 选中的目标造成贯穿伤害。
 
@@ -738,8 +682,6 @@ event = 1002,
 targetId = 106,
 value = 7,
 ```
-
-<a id="extendvaluetype"></a>
 
 ## `extend.valueType`
 
@@ -1020,7 +962,7 @@ customResultType = "multi_attack_3",
 dontUseCardTimeline = true,
 ```
 
-`customResultType` 由具体的攻击、Buff 或 Debuff 表现读取，不只限于某三个固定数值。当前 Core Effect 主要使用 `multi_attack_3`、`fan_attack` 等短名称。
+`customResultType` 由具体的攻击、Buff 或 Debuff 表现读取，不只限于某三个固定数值。现有 Effect 主要使用 `multi_attack_3`、`fan_attack` 等短名称。
 
 同一例子中的 `dontUseCardTimeline = true` 表示攻击表现不要优先使用这张 Card 的专属 Timeline。它不会禁用全部 Timeline，也不会阻止 `customResultType`。
 
@@ -1107,7 +1049,7 @@ return {
 
 这段配置新增 Effect `990701`：选择一个敌方单位并造成 2 点普通伤害。
 
-新增 ID 可以像 Core Effect 一样被 Card 或 Skill 引用。例如，Skill 的 `effect` 列表会按顺序执行其中的 Effect：
+新增 ID 可以被 Card 或 Skill 引用。例如，Skill 的 `effect` 列表会按顺序执行其中的 Effect：
 
 ```lua
 effect = { 990701 }

@@ -3,7 +3,7 @@ return {
     rows = {
         {
             skillId = 990801,
-            name = "Overcharged Shot",
+            name = "过载射击",
             effect = { 990701 },
             trigger = 0,
         },

@@ -43,7 +43,12 @@
 | `deathAdd`     | 黑矮星死亡标记 | 记录受击次数，供对应 Skill 读取        | 黑矮星专用           |
 | `boomAdd`      | 倒计时自爆标记 | 记录自爆倒计时                    | 威胁时序仪、延时引信的自爆机制 |
 | `negaAdd`      | 贬义叙述    | 修正“贬义叙述”的剩余反制次数            | 极境专用            |
-| `deadTrigger`  | 复生      | 值为 Skill ID；机体死亡时执行该 Skill | 废弃设计            |
-| `attkBack`     | 背刺      | 使攻击使用背刺目标规则                | 废弃设计            |
-| `relive`       | 复生      | 机体死亡时触发一次复生，触发后移除该属性       | 废弃设计            |
-| `noChoose`     | 无法被选中   | 任何阵营都不能将该 Card 选为目标        | 废弃设计            |
+
+## 旧设计
+
+以下 Attr 属于旧设计，请勿用于新 MOD：
+
+- `deadTrigger`
+- `attkBack`
+- `relive`
+- `noChoose`

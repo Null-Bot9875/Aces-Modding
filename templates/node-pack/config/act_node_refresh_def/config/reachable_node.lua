@@ -1,12 +1,12 @@
 return {
     installKey = "groupId",
-    installValue = 1401,
+    installValue = 1402,
     operation = "append",
     rows = {
         {
-            groupId = 1401,
-            nodeId = 990101,
-            weight = 1000000,
+            groupId = 1402,
+            nodeId = 990110,
+            weight = 100,
             limitBaseId = {},
             nodeLimit = 1,
         },

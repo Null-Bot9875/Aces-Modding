@@ -1,7 +1,6 @@
 # `static_skill_def` 配置参考
 
-> `battle_skill_def` 会在指定 Trigger 出现时执行 Effect。
-`static_skill_def` 不等待 Trigger，而是在来源有效期间持续改变 Card 或 Player 的战斗属性。
+> `static_skill_def` 定义持续生效的静态异能：来源位于有效区域时，它会持续改变 Card 或 Player 的战斗属性。
 
 
 ## `static_skill_def` 的基本结构

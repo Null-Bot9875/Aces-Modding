@@ -9,7 +9,7 @@ reward_def/config：玩家获得的奖励
 reward_def/cost：玩家选择 Option 时支付的消耗
 ```
 
-[`act_option_def.rewardList`](act_option_def.md#奖励rewardlist) 引用 `config` Sheet；[`act_option_def.costList`](act_option_def.md#消耗costlist) 引用 `cost` Sheet。战斗奖励也会通过 [`act_node_def.node_reward`](act_node_def.md#战斗奖励与随机规则) 最终引用 `config` Sheet。
+[`act_option_def.rewardList`](act_option_def.md#发放奖励) 引用 `config` Sheet；[`act_option_def.costList`](act_option_def.md#支付消耗) 引用 `cost` Sheet。战斗奖励也会通过 [`act_node_def.node_reward`](act_node_def.md#战斗奖励与随机规则) 最终引用 `config` Sheet。
 
 ## `config`：奖励
 
@@ -275,4 +275,4 @@ rewardList = {
 
 如果 `costList` 中包含多个 Cost ID，系统会先检查所有消耗。只有全部满足时才会统一支付，然后继续执行 Option；任意一项不足都不会先扣除其他消耗。
 
-`rewardList` 的固定发放、加权抽取和多项发放写法见 [`act_option_def` 配置参考](act_option_def.md#奖励rewardlist)。
+`rewardList` 的固定发放、加权抽取和多项发放写法见 [`act_option_def` 配置参考](act_option_def.md#发放奖励)。

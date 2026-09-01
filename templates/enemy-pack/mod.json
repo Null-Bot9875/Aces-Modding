@@ -1,0 +1,10 @@
+{
+  "id": "aces.example.enemypack",
+  "name": "两回合行动链 Enemy 模板",
+  "author": "Aces Team",
+  "version": "0.1.0",
+  "supportedGameVersions": [
+    "1.0"
+  ],
+  "description": "定义一个 Enemy 及其两回合循环行动链。"
+}

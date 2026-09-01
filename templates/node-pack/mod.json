@@ -1,10 +1,10 @@
 {
-  "id": "aces.example.nodeenemy",
-  "name": "Node and Chain Enemy Example",
+  "id": "aces.example.nodepack",
+  "name": "三选一节点模板",
   "author": "Aces Team",
   "version": "0.1.0",
   "supportedGameVersions": [
     "1.0"
   ],
-  "description": "Adds one reachable Rogue battle Node and one deterministic two-round chain Enemy."
+  "description": "向第一层事件节点池追加一个可选择星核、Card 或 Chip 的完整事件节点。"
 }

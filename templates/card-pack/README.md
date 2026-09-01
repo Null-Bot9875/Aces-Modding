@@ -3,14 +3,12 @@
 用这个模板可以新增一张战术 Card，并为它配置自己的 Skill 和 Effect：
 
 ```text
-Card 910001：Example: Overcharged Shot
+Card 910001：示例：过载射击
   -> Skill 990801：主动执行
   -> Effect 990701：对所选敌方单位造成 4 点伤害
 ```
 
 这张 Card 会加入游戏现有的常用卡牌奖励池 `10003`，池中的其他 Card 会保留。
-
-> 发布自己的 MOD 前，请在专门的测试存档中确认奖励出现、目标选择、伤害结算和停用恢复。
 
 ## 包含内容
 
@@ -47,7 +45,7 @@ return {
 }
 ```
 
-这里必须保留 `operation="append"`，这样游戏原有的池成员不会被替换。省略该字段时，批次会按 `replace` 处理，池 `10003` 将只剩这个 MOD 提供的成员。
+`act_card_pool_def.base_pool` 的默认操作就是 `append`；模板仍然显式写出该值，方便阅读。它会保留游戏已有的池成员，再加入 MOD Card。
 
 ## 提高 Card 的出现概率
 
@@ -69,23 +67,20 @@ local CARD_POOL_ENTRY_COPIES = 10
 - 按玩法平衡调整 `CARD_POOL_ENTRY_COPIES`；
 - 确认 `baseId`、`poolId` 和当前游戏版本仍符合你的制作目标。
 
-## 测试步骤
+## 安装与运行
 
-1. 将整个目录复制到游戏可执行文件同级的 `Mods/example.cardpack/`。
-2. 在 MOD 管理器中启用 `example.cardpack`，应用选择后重启游戏。
+1. 将整个目录复制到游戏可执行文件同级的 `Mods/aces.example.cardpack/`。
+2. 在 MOD 管理器中启用“自定义 Card 模板”，应用选择后重启游戏。
 3. 使用 `baseId=501` 新建一局 Rogue 战役；已有战役可能已经保存旧卡池。
 4. 进入一次使用卡池 `10003` 的普通 Card 奖励。
-5. 确认候选中仍有游戏原有 Card，并能出现 `Example: Overcharged Shot`。
+5. 确认候选中仍有游戏原有 Card，并能出现“示例：过载射击”。
 6. 选择示例 Card，确认它进入当前 Rogue 战役牌组。
 7. 在后续战斗中抽到并打出 Card，只选择一次敌方目标。
 8. 确认目标受到 4 点伤害，Card 正常离开手牌。
-9. 保存本轮 `Player.log`，检查 MOD 配置、Skill、Effect 或战斗结算错误。
-10. 停用 MOD，冷启动并新建战役，确认示例 Card 不再出现在普通 Card 奖励中。
+9. 停用 MOD 后，冷启动并新建战役，示例 Card 不再出现在普通 Card 奖励中。
 
 详细字段说明见：
 
 - [`card_def` 配置参考](../../docs/zh-cn/config/card_def.md)
 - [Skill 配置参考](../../docs/zh-cn/config/battle_skill_def.md)
 - [Effect 配置参考](../../docs/zh-cn/config/battle_effect_def.md)
-
-配置文件能够加载后，仍需完成一次真实游戏测试。请分别确认奖励展示、存档、目标选择、伤害结算和停用恢复。

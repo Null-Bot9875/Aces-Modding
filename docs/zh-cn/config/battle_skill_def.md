@@ -80,7 +80,7 @@ Card `2016` 通过 `skillList` 调用 Skill `201601`。Skill 不等待 Trigger�
 
 `costEffect` 是启动费用对应的单个 Effect ID，类型为 `int`，默认值为 `0`。`extraCost` 是额外费用对应的 Effect ID 列表，类型为 `list[int]`，默认值为 `{}`。
 
-当前 Core Skill 没有 `costEffect`、`extraCost` 的非默认案例。本页只保留字段形态和默认行为，不提供推测写法。
+当前正式 Skill 没有 `costEffect`、`extraCost` 的非默认案例。本页只保留字段形态和默认行为，不提供推测写法。
 
 ### `trigger != 0`：监听 Trigger
 
@@ -303,7 +303,7 @@ srcCardId = 2039,
 
 ### `keywordList`
 
-`keywordList` 的类型是 `list[dict[string,int]]`，默认值为 `{}`。当前 Core Skill 没有非空正式案例，本页不提供推测写法。
+`keywordList` 的类型是 `list[dict[string,int]]`，默认值为 `{}`。当前正式 Skill 没有非空案例，本页不提供推测写法。
 
 ## 旧设计
 

@@ -57,7 +57,7 @@ Condition `2310` 的完整配置是：
 | 配置表 | 引用字段 |
 | --- | --- |
 | [`card_def`](card_def.md) | `useConditions` |
-| [`robot_chain_def`](chains.md) | `actions[].useConditions` |
+| [`robot_chain_def`](robot_chain_def.md) | `actions[].useConditions` |
 | [`battle_target_def`](battle_target_def.md) | `conditionList` |
 | [`static_skill_def`](static_skill_def.md) | `conditionListSelf`、`conditionList` |
 
@@ -67,15 +67,13 @@ Condition `2310` 的完整配置是：
 
 | `type` | 名称 | 检查内容 |
 | --- | --- | --- |
-| [`1`](#type-1) | `Hp` | 目标 Card 或机体的 HP |
-| [`2`](#type-2) | `Power` | 指定一方的当前能量 |
-| [`5`](#type-5) | `HandCard` | 调用位置传入的目标 Card 是否符合筛选 |
-| [`8`](#type-8) | `Stack` | 调用位置传入的 Stack 是否符合筛选 |
-| [`11`](#type-11) | `Value` | `args.valueKey` 指定的战斗值 |
+| [`1`](#type-1-hp) | `Hp` | 目标 Card 或机体的 HP |
+| [`2`](#type-2-power) | `Power` | 指定一方的当前能量 |
+| [`5`](#type-5-handcard) | `HandCard` | 调用位置传入的目标 Card 是否符合筛选 |
+| [`8`](#type-8-stack) | `Stack` | 调用位置传入的 Stack 是否符合筛选 |
+| [`11`](#type-11-value) | `Value` | `args.valueKey` 指定的战斗值 |
 
-<a id="type-1"></a>
-
-### `type = 1`：`Hp`
+### Type 1 Hp
 
 检查运行时目标 Card 的当前 HP。调用位置没有提供有效 Card 时，会改为检查 `target` 指定一方的机体 HP；填写 `args.base=1` 可以明确要求检查机体。
 
@@ -130,9 +128,7 @@ args = {
 
 `hpDiff` 把检查值改为 `hpMax-hp`。结果为 `0` 表示满 HP，结果越大表示已损失的 HP 越多。
 
-<a id="type-2"></a>
-
-### `type = 2`：`Power`
+### Type 2 Power
 
 检查 `target` 指定一方的当前能量。`target=1` 检查发起方，`target=2` 检查对方；该类型不需要运行时 Card 或 Stack。
 
@@ -149,13 +145,11 @@ maxValue = -1,
 args = {},
 ```
 
-<a id="type-5"></a>
-
-### `type = 5`：`HandCard`
+### Type 5 HandCard
 
 检查调用位置传入的目标 Card 是否符合 `args` 筛选。名称虽然是 `HandCard`，但运行时不会检查 Card 是否位于手牌；引用位置必须提供有效的运行时 Card UID。
 
-`target` 不会代替运行时 Card UID。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用 Core 配置中的 `0` 和 `-1`。
+`target` 不会代替运行时 Card UID。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用现有配置中的 `0` 和 `-1`。
 
 当前公开的 Card 筛选参数如下：
 
@@ -229,13 +223,11 @@ args = {
 
 多个筛选参数同时填写时必须全部满足。Condition `2091` 同时要求目标具有 Tag `4`，并且不具有 Tag `6` 或 `7`。
 
-<a id="type-8"></a>
-
-### `type = 8`：`Stack`
+### Type 8 Stack
 
 检查调用位置传入的 Stack。该类型需要有效的 Stack ID；运行时 Card UID 不能代替 Stack ID。
 
-`target=1` 用于己方 Stack。当前公开案例只使用 `target=1`。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用 Core 配置中的 `0` 和 `1`。
+`target=1` 用于己方 Stack。当前公开案例只使用 `target=1`。该类型不读取 `minValue` 和 `maxValue`；完整 row 仍需填写，示例沿用现有配置中的 `0` 和 `1`。
 
 `args.stack` 是允许的 Stack 类型列表：
 
@@ -263,9 +255,7 @@ args = {
 },
 ```
 
-<a id="type-11"></a>
-
-### `type = 11`：`Value`
+### Type 11 Value
 
 `args.valueKey` 决定读取或计算哪个战斗值，再使用 `minValue` 和 `maxValue` 判断结果是否通过。
 
@@ -284,9 +274,7 @@ args = {
 | [`heroCount`](#valuekey-herocount) | 目标机体搭乘的机师数量 | 需要目标 Card |
 | [Card Attr 名称](#valuekey-card-attr) | 目标 Card 的同名 Attr 合计值 | 需要目标 Card |
 
-<a id="valuekey-roundrecord"></a>
-
-#### `roundRecord`
+#### valueKey roundRecord
 
 统计 `target` 指定玩家在当前回合实际打出的 Card 数量。它只统计出牌操作，不统计抽牌、创建 Card 或其他行动。
 
@@ -317,9 +305,7 @@ args = {
 },
 ```
 
-<a id="valuekey-cardcount"></a>
-
-#### `cardCount`
+#### valueKey cardCount
 
 统计 `args.area` 指定战斗区域内符合筛选的 Card 数量。`area` 必填；Area ID 的含义见[战斗区域参考](../concepts/areas.md)。
 
@@ -367,9 +353,7 @@ args = {
 },
 ```
 
-<a id="valuekey-dronecount"></a>
-
-#### `droneCount`
+#### valueKey droneCount
 
 遍历 `target` 指定玩家的战场网格，并统计符合筛选的 Card。名称虽然是 `droneCount`，但它不会自动限定无人机；需要按 `cardId`、`cardTag` 或 `noTag` 筛选具体对象。
 
@@ -435,9 +419,7 @@ args = {
 },
 ```
 
-<a id="valuekey-attk"></a>
-
-#### `attk`
+#### valueKey attk
 
 读取运行时目标 Card 的当前攻击。没有有效的运行时 Card UID 时，Condition 不通过。
 
@@ -454,9 +436,7 @@ args = {
 },
 ```
 
-<a id="valuekey-hp"></a>
-
-#### `hp`
+#### valueKey hp
 
 读取运行时目标 Card 的当前 HP。没有有效的运行时 Card UID 时，Condition 不通过。
 
@@ -473,9 +453,7 @@ args = {
 },
 ```
 
-<a id="valuekey-cost"></a>
-
-#### `cost`
+#### valueKey cost
 
 读取运行时目标 Card 的当前费用。没有有效的运行时 Card UID 时，Condition 不通过。
 
@@ -492,9 +470,7 @@ args = {
 },
 ```
 
-<a id="valuekey-dircount"></a>
-
-#### `dirCount`
+#### valueKey dirCount
 
 统计己方战场中指向运行时目标 Card 的回路数量。目标 Card 不在对应战场网格，或没有有效 Card UID 时，结果无法满足正数条件。
 
@@ -511,9 +487,7 @@ args = {
 },
 ```
 
-<a id="valuekey-gold"></a>
-
-#### `gold`
+#### valueKey gold
 
 读取 `target` 指定玩家在当前战斗中的 Gold。该值不需要运行时目标 Card。
 
@@ -530,9 +504,7 @@ args = {
 },
 ```
 
-<a id="valuekey-herocount"></a>
-
-#### `heroCount`
+#### valueKey heroCount
 
 统计运行时目标机体当前搭乘的机师数量。目标 Card 不在战场网格，或没有有效的运行时 Card UID 时，Condition 不通过。
 
@@ -549,9 +521,7 @@ args = {
 },
 ```
 
-<a id="valuekey-card-attr"></a>
-
-#### 使用 Card Attr 名称作为 `valueKey`
+#### valueKey Card Attr
 
 未命中前述固定名称时，`Value` 会把 `valueKey` 当作 Card Attr 名称，读取目标 Card 上所有同名 Attr 的合计值。目标 Card 没有该 Attr 时，Condition 不通过。
 
@@ -568,7 +538,7 @@ args = {
 },
 ```
 
-当前 Core Condition 中已有的 Attr 名称包括 `attkBack`、`attkShield`、`attkTwice` 和 `attkDelay`。Attr 的来源和含义见 [Effect 属性参考](../concepts/attrs.md)。
+常用的 Attr 名称包括 `attkShield`、`attkTwice` 和 `attkDelay`。Attr 的来源和含义见 [Effect 属性参考](../concepts/attrs.md)。
 
 ## 旧设计
 

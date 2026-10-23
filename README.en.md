@@ -4,6 +4,8 @@
 
 This repository provides MOD templates, configuration references, and concept guides for *ACE Strategy: Mecha Nova* (NOVA).
 
+Current game reference version: **Aces 1.0.9**, updated on 2026-10-23.
+
 ## Quick Start
 
 - [Start Making a MOD](docs/en/getting-started.md): directory layout, configuration paths, installation, and verification.

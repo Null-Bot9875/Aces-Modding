@@ -51,7 +51,7 @@ config/card_def/config/cards.lua
 
 - `id` 使用小写字母、数字和点，例如 `author.example`。
 - 不同 MOD 不能使用相同的 `id`。
-- `supportedGameVersions` 填写游戏版本的前两段数字。例如游戏版本是 `1.0.8`，这里填写 `1.0`。
+- `supportedGameVersions` 填写游戏版本的前两段数字。例如游戏版本是 `1.0.9`，这里填写 `1.0`。
 - MOD 目录名可以自定义，但建议直接与 `id` 相同，例如 `Mods/author.example/`。
 
 ## `main.lua`

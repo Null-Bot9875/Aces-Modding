@@ -4,6 +4,8 @@
 
 本仓库提供《ACE Strategy: Mecha Nova》（NOVA）的 MOD 模板、配置参考和相关概念说明。
 
+当前游戏参考版本：**Aces 1.0.9**，更新于 2026-10-23。
+
 ## 快速开始
 
 - [开始制作 MOD](docs/zh-cn/getting-started.md)：目录结构、配置路径、安装流程和完成检查。
@@ -17,7 +19,7 @@
 
 中文文档入口见 [`docs/zh-cn/README.md`](docs/zh-cn/README.md)。
 
-中文是当前唯一维护的文档语言。
+中文是内容维护源，英文说明由 AI 翻译。
 
 ## 许可
 

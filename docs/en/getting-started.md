@@ -51,7 +51,7 @@ All Lua files must use UTF-8 without BOM.
 
 - `id` uses lowercase letters, digits, and dots, such as `author.example`.
 - Two MODs cannot use the same `id`.
-- `supportedGameVersions` uses the first two parts of the game version. For game version `1.0.8`, enter `1.0`.
+- `supportedGameVersions` uses the first two parts of the game version. For game version `1.0.9`, enter `1.0`.
 - The MOD folder may use any name, but using the same value as `id`, such as `Mods/author.example/`, is recommended.
 
 ## `main.lua`
